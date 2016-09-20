@@ -18,11 +18,11 @@ import PasswordMask from 'react-password-mask';
 
 ```js
 <PasswordMask
-  className="form-control"
+  value={this.state.password}
   id="password"
   name="password"
+  className="form-control"
   placeholder="Enter password"
-  value={this.state.password}
   onChange={this.handleChange.bind(this)}
   hideOnTimeout={400}
 />
@@ -33,9 +33,9 @@ import PasswordMask from 'react-password-mask';
 | option        | type      | description                                                   |
 |---------------|-----------|---------------------------------------------------------------|
 | `value`       | any       | The value of the password field.                              |
-| `className`   | string    | A space-separated list of HTML `class` attributes.            |
 | `id`          | string    | The HTML `id` attribute used for the password field.          |
 | `name`        | string    | The HTML `name` attribute used for the password field.        |
+| `className`   | string    | A space-separated list of HTML `class` attributes.            |
 | `placeholder` | string    | The HTML `placeholder` attribute used for the password field. |
 | `onChange`    | function  | A callback function to be invoked when the `value` of the field changes. Receives an argument containing the current value of the field. |
 | `onShow`      | function  | A callback function to be invoked when the `value` of the field is shown. Receives an argument containing the current value of the field. |
