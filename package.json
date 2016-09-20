@@ -1,0 +1,26 @@
+{
+  "name": "react-password-mask",
+  "version": "1.0.0",
+  "description": "Show/hide the contents of a password field.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zakangelle/react-password-mask.git"
+  },
+  "keywords": [
+    "show",
+    "hide",
+    "password",
+    "field",
+    "mask"
+  ],
+  "author": "Zak Angelle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zakangelle/react-password-mask/issues"
+  },
+  "homepage": "https://github.com/zakangelle/react-password-mask#readme"
+}
