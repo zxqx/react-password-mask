@@ -117,6 +117,10 @@ export default class PasswordMask extends Component {
     this.setState({ showPassword: !showPassword });
   }
 
+  componentWillUnmount() {
+    clearTimeout(this._timer);
+  }
+
   render() {
     const { value, className, id, name, placeholder, onChange } = this.props;
 
