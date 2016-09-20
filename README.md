@@ -2,6 +2,8 @@
 
 Show/hide the contents of a password field.
 
+<img src='https://www.dropbox.com/s/2zhkcqfqhl9w7pr/react-password-mask.gif?raw=1' />
+
 ## Installation
 
 Install:
