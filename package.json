@@ -2,9 +2,11 @@
   "name": "react-password-mask",
   "version": "1.0.0",
   "description": "Show/hide the contents of a password field.",
-  "main": "index.js",
+  "main": "lib/passwordMask.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode=build",
+    "dev": "webpack --progress --colors --watch --mode=dev",
+    "test": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,26 @@
   "bugs": {
     "url": "https://github.com/zakangelle/react-password-mask/issues"
   },
-  "homepage": "https://github.com/zakangelle/react-password-mask#readme"
+  "homepage": "https://github.com/zakangelle/react-password-mask#readme",
+  "peerDependencies": {
+    "react": "^0.14.6 || 15.x.x"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^5.0.1",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-react": "^3.16.1",
+    "mocha": "^3.0.2",
+    "webpack": "^1.13.2",
+    "yargs": "^5.0.0"
+  }
 }
