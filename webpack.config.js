@@ -25,7 +25,7 @@ var config = {
     umdNamedDefine: true
   },
   externals: {
-    react: 'React'
+    react: 'react'
   },
   module: {
     loaders: [
