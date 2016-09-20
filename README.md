@@ -28,19 +28,6 @@ import PasswordMask from 'react-password-mask';
 />
 ```
 
-    value: PropTypes.any.isRequired,
-    className: PropTypes.string,
-    id: PropTypes.string,
-    name: PropTypes.string,
-    placeholder: PropTypes.string,
-    onChange: PropTypes.func,
-    onShow: PropTypes.func,
-    onHide: PropTypes.func,
-    onToggle: PropTypes.func,
-    hideOnTimeout: PropTypes.number,
-    inputStyles: PropTypes.object,
-    buttonStyles: PropTypes.object
-
 ## Options
 
 | option        | type      | description                                                   |
