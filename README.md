@@ -6,8 +6,6 @@ Show/hide the contents of a password field.
 
 ## Installation
 
-Install:
-
 ```sh
 $ npm install react-password-mask
 ```
@@ -24,7 +22,7 @@ import PasswordMask from 'react-password-mask';
   id="password"
   name="password"
   placeholder="Enter password"
-  value={ui.password}
+  value={this.state.password}
   onChange={this.handleChange.bind(this)}
   hideOnTimeout={400}
 />
