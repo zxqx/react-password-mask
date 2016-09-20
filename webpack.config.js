@@ -24,6 +24,9 @@ var config = {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
+  externals: {
+    react: 'React'
+  },
   module: {
     loaders: [
       {
