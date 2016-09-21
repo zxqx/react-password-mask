@@ -8,7 +8,8 @@
     "example": "webpack --config=webpack.config.example.js",
     "dev": "webpack --progress --colors --watch --mode=dev",
     "test": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js",
-    "preversion": "npm run build && npm run example"
+    "preversion": "npm run build && npm run example",
+    "dropbox": "cp -r example/* ~/Dropbox/Public/demos/react-password-mask/"
   },
   "repository": {
     "type": "git",

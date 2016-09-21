@@ -120,7 +120,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	          name: 'password',
 	          placeholder: 'Enter password',
 	          onChange: this.handleChange.bind(this),
-	          hideOnTimeout: 400,
 	          inputStyles: { padding: '8px', fontSize: '16px' }
 	        })
 	      );
@@ -21547,16 +21546,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        l = s(p),
 	        c = { position: "absolute", top: "50%", right: "6px", marginTop: "-13px", padding: "4px 10px", background: "#e2e2e2", borderRadius: "2px", color: "#000", textAlign: "center", textDecoration: "none", WebkitUserSelect: "none", MozUserSelect: "none", userSelect: "none" },
 	        d = { width: "100%" },
-	        h = u({}, d, { display: "block" }),
-	        f = u({}, d, { display: "none" }),
+	        f = u({}, d, { display: "block" }),
+	        h = u({}, d, { display: "none" }),
 	        w = function (e) {
 	      function t() {
 	        n(this, t);var e = r(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this));return e.state = { showPassword: !1, hasBeenFocused: !1 }, e;
-	      }return a(t, e), i(t, [{ key: "hidePasswordOnTimeout", value: function value() {
-	          var e = this;clearTimeout(this._timer), this._timer = setTimeout(function () {
-	            e.setState({ showPassword: !1 });
-	          }, this.props.hideOnTimeout);
-	        } }, { key: "invokeCallbacks", value: function value(e, t) {
+	      }return a(t, e), i(t, [{ key: "invokeCallbacks", value: function value(e, t) {
 	          var o = this.props,
 	              s = o.onShow,
 	              n = o.onHide,
@@ -21565,16 +21560,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	          var e = this.state.showPassword,
 	              t = e ? this.refs.text : this.refs.password;t.focus();
 	        } }, { key: "componentWillUpdate", value: function value(e, t) {
-	          var o = this.props.hideOnTimeout,
-	              s = this.state.showPassword;o && e.value !== this.props.value && (s ? this.hidePasswordOnTimeout() : (this.setState({ showPassword: !0 }), this.hidePasswordOnTimeout())), t.showPassword !== s && this.invokeCallbacks(e.value, t.showPassword);
+	          var o = this.state.showPassword;t.showPassword !== o && this.invokeCallbacks(e.value, t.showPassword);
 	        } }, { key: "componentDidUpdate", value: function value(e, t) {
 	          var o = this.state,
 	              s = o.showPassword,
 	              n = o.hasBeenFocused;!n || e.value === this.props.value && t.showPassword === s || this.focusVisibleField();
 	        } }, { key: "togglePasswordMask", value: function value() {
 	          var e = this.state.showPassword;this.setState({ showPassword: !e });
-	        } }, { key: "componentWillUnmount", value: function value() {
-	          clearTimeout(this._timer);
 	        } }, { key: "render", value: function value() {
 	          var e = this,
 	              t = this.props,
@@ -21583,9 +21575,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	              n = t.id,
 	              r = t.name,
 	              a = t.placeholder,
-	              i = t.onChange;return l["default"].createElement("div", { style: { position: "relative" } }, l["default"].createElement("input", { type: "text", ref: "text", style: u({}, this.state.showPassword ? h : f, this.props.inputStyles), value: o, className: s, id: this.state.showPassword ? n : "", name: this.state.showPassword ? r : "", placeholder: a, onChange: i, onFocus: function onFocus() {
+	              i = t.onChange;return l["default"].createElement("div", { style: { position: "relative" } }, l["default"].createElement("input", { type: "text", ref: "text", style: u({}, this.state.showPassword ? f : h, this.props.inputStyles), value: o, className: s, id: this.state.showPassword ? n : "", name: this.state.showPassword ? r : "", placeholder: a, onChange: i, onFocus: function onFocus() {
 	              return e.setState({ hasBeenFocused: !0 });
-	            } }), l["default"].createElement("input", { type: "password", ref: "password", style: u({}, this.state.showPassword ? f : h, this.props.inputStyles), value: o, className: s, id: this.state.showPassword ? "" : n, name: this.state.showPassword ? "" : r, placeholder: a, onChange: i, onFocus: function onFocus() {
+	            } }), l["default"].createElement("input", { type: "password", ref: "password", style: u({}, this.state.showPassword ? h : f, this.props.inputStyles), value: o, className: s, id: this.state.showPassword ? "" : n, name: this.state.showPassword ? "" : r, placeholder: a, onChange: i, onFocus: function onFocus() {
 	              return e.setState({ hasBeenFocused: !0 });
 	            } }), l["default"].createElement("a", { href: "", style: u({}, c, this.props.buttonStyles), onMouseDown: function onMouseDown(e) {
 	              return e.preventDefault();
@@ -21593,7 +21585,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              t.preventDefault(), e.togglePasswordMask();
 	            } }, this.state.showPassword ? "Hide" : "Show"));
 	        } }]), t;
-	    }(p.Component);w.propTypes = { value: p.PropTypes.any.isRequired, className: p.PropTypes.string, id: p.PropTypes.string, name: p.PropTypes.string, placeholder: p.PropTypes.string, onChange: p.PropTypes.func, onShow: p.PropTypes.func, onHide: p.PropTypes.func, onToggle: p.PropTypes.func, hideOnTimeout: p.PropTypes.number, inputStyles: p.PropTypes.object, buttonStyles: p.PropTypes.object }, t["default"] = w, e.exports = t["default"];
+	    }(p.Component);w.propTypes = { value: p.PropTypes.any.isRequired, className: p.PropTypes.string, id: p.PropTypes.string, name: p.PropTypes.string, placeholder: p.PropTypes.string, onChange: p.PropTypes.func, onShow: p.PropTypes.func, onHide: p.PropTypes.func, onToggle: p.PropTypes.func, inputStyles: p.PropTypes.object, buttonStyles: p.PropTypes.object }, t["default"] = w, e.exports = t["default"];
 	  }, function (t, o) {
 	    t.exports = e;
 	  }]);

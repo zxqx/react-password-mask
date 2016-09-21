@@ -28,7 +28,6 @@ export default class Example extends Component {
           name="password"
           placeholder="Enter password"
           onChange={this.handleChange.bind(this)}
-          hideOnTimeout={400}
           inputStyles={{ padding: '8px', fontSize: '16px' }}
         />
       </div>

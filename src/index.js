@@ -41,7 +41,6 @@ export default class PasswordMask extends Component {
     onShow: PropTypes.func,
     onHide: PropTypes.func,
     onToggle: PropTypes.func,
-    hideOnTimeout: PropTypes.number,
     inputStyles: PropTypes.object,
     buttonStyles: PropTypes.object
   };
@@ -53,14 +52,6 @@ export default class PasswordMask extends Component {
       showPassword: false,
       hasBeenFocused: false
     };
-  }
-
-  hidePasswordOnTimeout() {
-    clearTimeout(this._timer);
-
-    this._timer = setTimeout(() => {
-      this.setState({ showPassword: false });
-    }, this.props.hideOnTimeout);
   }
 
   invokeCallbacks(value, showPassword) {
@@ -88,25 +79,13 @@ export default class PasswordMask extends Component {
 
   focusVisibleField() {
     const { showPassword } = this.state;
-
     const visibleField = showPassword ? this.refs.text : this.refs.password;
 
     visibleField.focus();
   }
 
   componentWillUpdate(nextProps, nextState) {
-    const { hideOnTimeout } = this.props;
     const { showPassword } = this.state;
-
-    if (hideOnTimeout && nextProps.value !== this.props.value) {
-      if (showPassword) {
-        this.hidePasswordOnTimeout();
-      }
-      else {
-        this.setState({ showPassword: true });
-        this.hidePasswordOnTimeout();
-      }
-    }
 
     if (nextState.showPassword !== showPassword) {
       this.invokeCallbacks(nextProps.value, nextState.showPassword);
@@ -125,10 +104,6 @@ export default class PasswordMask extends Component {
   togglePasswordMask() {
     const { showPassword } = this.state;
     this.setState({ showPassword: !showPassword });
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this._timer);
   }
 
   render() {
