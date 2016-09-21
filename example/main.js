@@ -19,7 +19,9 @@ export default class Example extends Component {
 
   render() {
     return (
-      <div style={{ width: '300px' }}>
+      <div>
+        <h1>React Password Mask</h1>
+
         <PasswordMask
           value={this.state.password}
           id="password"

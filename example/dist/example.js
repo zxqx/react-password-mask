@@ -108,7 +108,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { style: { width: '300px' } },
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'React Password Mask'
+	        ),
 	        _react2.default.createElement(_passwordMaskMin2.default, {
 	          value: this.state.password,
 	          id: 'password',
