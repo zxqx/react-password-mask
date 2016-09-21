@@ -5,8 +5,10 @@
   "main": "lib/passwordMask.min.js",
   "scripts": {
     "build": "webpack --mode=build",
+    "example": "webpack --config=webpack.config.example.js",
     "dev": "webpack --progress --colors --watch --mode=dev",
-    "test": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
+    "test": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js",
+    "preversion": "npm run build && npm run example"
   },
   "repository": {
     "type": "git",
@@ -43,7 +45,10 @@
     "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^3.16.1",
     "mocha": "^3.0.2",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
     "webpack": "^1.13.2",
     "yargs": "^5.0.0"
-  }
+  },
+  "dependencies": {}
 }

@@ -8,7 +8,9 @@ const buttonStyles = {
   padding: '4px 10px',
   background: '#e2e2e2',
   borderRadius: '2px',
+  color: '#000',
   textAlign: 'center',
+  textDecoration: 'none',
   WebkitUserSelect: 'none',
   MozUserSelect: 'none',
   userSelect: 'none'
@@ -159,6 +161,7 @@ export default class PasswordMask extends Component {
         />
 
         <a
+          href=""
           style={{
             ...buttonStyles,
             ...this.props.buttonStyles
