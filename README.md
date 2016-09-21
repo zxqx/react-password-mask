@@ -2,10 +2,10 @@
 
 Show/hide the contents of a password field.
 
-[![See Demo](https://img.shields.io/badge/see-demo-cc00ff.svg)](https://dl.dropboxusercontent.com/u/21334841/demos/react-password-mask/index.html)
+[![See Demo](https://img.shields.io/badge/see-demo-0066ff.svg)](https://dl.dropboxusercontent.com/u/21334841/demos/react-password-mask/index.html)
 
 <a href="https://dl.dropboxusercontent.com/u/21334841/demos/react-password-mask/index.html">
-  <img src='https://www.dropbox.com/s/tung4a65m5iw80g/react-password-mask.gif?raw=1' />
+  <img src='https://www.dropbox.com/s/y5vuxevoqkyjvtv/react-password-mask.gif?raw=1' />
 </a>
 
 ## Installation
@@ -28,7 +28,6 @@ import PasswordMask from 'react-password-mask';
   className="form-control"
   placeholder="Enter password"
   onChange={this.handleChange.bind(this)}
-  hideOnTimeout={400}
 />
 ```
 
@@ -45,7 +44,6 @@ import PasswordMask from 'react-password-mask';
 | `onShow`      | function  | A callback function to be invoked when the `value` of the field is shown. Receives an argument containing the current value of the field. |
 | `onHide`      | function  | A callback function to be invoked when the `value` of the field is masked. Receives an argument containing the current value of the field. |
 | `onToggle`    | function  | A callback function to be invoked when the `value` of the field is shown or masked. Receives an argument containing the current value of the field. |
-| `hideOnTimeout` | number  | The amount of time (in milliseconds) that the password `value` will be shown for after being changed. |
 | `inputStyles` | object  | The CSS styles to be applied to the password field.            |
 | `buttonStyles`| object  | The CSS styles to be applied to the show/hide button.          |
 
