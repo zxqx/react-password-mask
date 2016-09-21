@@ -174,13 +174,10 @@ export default class PasswordMask extends Component {
             ...buttonStyles,
             ...this.props.buttonStyles
           }}
+          onMouseDown={e => e.preventDefault()}
           onClick={e => {
             e.preventDefault();
             this.togglePasswordMask();
-          }}
-          onMouseDown={e => {
-            e.preventDefault();
-            this.focusVisibleField();
           }}
         >
           {this.state.showPassword ? 'Hide' : 'Show'}

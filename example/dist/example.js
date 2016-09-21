@@ -21587,10 +21587,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	              return e.setState({ hasBeenFocused: !0 });
 	            } }), l["default"].createElement("input", { type: "password", ref: "password", style: u({}, this.state.showPassword ? f : h, this.props.inputStyles), value: o, className: s, id: this.state.showPassword ? "" : n, name: this.state.showPassword ? "" : r, placeholder: a, onChange: i, onFocus: function onFocus() {
 	              return e.setState({ hasBeenFocused: !0 });
-	            } }), l["default"].createElement("a", { href: "", style: u({}, c, this.props.buttonStyles), onClick: function onClick(t) {
+	            } }), l["default"].createElement("a", { href: "", style: u({}, c, this.props.buttonStyles), onMouseDown: function onMouseDown(e) {
+	              return e.preventDefault();
+	            }, onClick: function onClick(t) {
 	              t.preventDefault(), e.togglePasswordMask();
-	            }, onMouseDown: function onMouseDown(t) {
-	              t.preventDefault(), e.focusVisibleField();
 	            } }, this.state.showPassword ? "Hide" : "Show"));
 	        } }]), t;
 	    }(p.Component);w.propTypes = { value: p.PropTypes.any.isRequired, className: p.PropTypes.string, id: p.PropTypes.string, name: p.PropTypes.string, placeholder: p.PropTypes.string, onChange: p.PropTypes.func, onShow: p.PropTypes.func, onHide: p.PropTypes.func, onToggle: p.PropTypes.func, hideOnTimeout: p.PropTypes.number, inputStyles: p.PropTypes.object, buttonStyles: p.PropTypes.object }, t["default"] = w, e.exports = t["default"];
