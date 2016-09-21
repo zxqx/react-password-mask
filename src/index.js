@@ -63,8 +63,39 @@ export default class PasswordMask extends Component {
     }, this.props.hideOnTimeout);
   }
 
+  invokeCallbacks(value, showPassword) {
+    const { onShow, onHide, onToggle } = this.props;
+
+    if (!onToggle && !onShow && !onHide) {
+      return;
+    }
+
+    if (onToggle) {
+      onToggle(value);
+    }
+
+    if (showPassword) {
+      if (onShow) {
+        onShow(value);
+      }
+    }
+    else {
+      if (onHide) {
+        onHide(value);
+      }
+    }
+  }
+
+  focusVisibleField() {
+    const { showPassword } = this.state;
+
+    const visibleField = showPassword ? this.refs.text : this.refs.password;
+
+    visibleField.focus();
+  }
+
   componentWillUpdate(nextProps, nextState) {
-    const { onShow, onHide, onToggle, hideOnTimeout } = this.props;
+    const { hideOnTimeout } = this.props;
     const { showPassword } = this.state;
 
     if (hideOnTimeout && nextProps.value !== this.props.value) {
@@ -77,44 +108,21 @@ export default class PasswordMask extends Component {
       }
     }
 
-    if (nextState.showPassword === showPassword) {
-      return;
-    }
-
-    if (!onToggle && !onShow && !onHide) {
-      return;
-    }
-
-    if (onToggle) {
-      onToggle(nextProps.value);
-    }
-
-    if (nextState.showPassword) {
-      if (onShow) {
-        onShow(nextProps.value);
-      }
-    }
-    else {
-      if (onHide) {
-        onHide(nextProps.value);
-      }
+    if (nextState.showPassword !== showPassword) {
+      this.invokeCallbacks(nextProps.value, nextState.showPassword);
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
     const { showPassword, hasBeenFocused } = this.state;
 
-    const visibleField = showPassword ? this.refs.text : this.refs.password;
-
     if (hasBeenFocused &&
       (prevProps.value !== this.props.value || prevState.showPassword !== showPassword)) {
-      visibleField.focus();
+      this.focusVisibleField();
     }
   }
 
-  togglePasswordMask(e) {
-    e.preventDefault();
-
+  togglePasswordMask() {
     const { showPassword } = this.state;
     this.setState({ showPassword: !showPassword });
   }
@@ -166,7 +174,14 @@ export default class PasswordMask extends Component {
             ...buttonStyles,
             ...this.props.buttonStyles
           }}
-          onClick={this.togglePasswordMask.bind(this)}
+          onClick={e => {
+            e.preventDefault();
+            this.togglePasswordMask();
+          }}
+          onMouseDown={e => {
+            e.preventDefault();
+            this.focusVisibleField();
+          }}
         >
           {this.state.showPassword ? 'Hide' : 'Show'}
         </a>
