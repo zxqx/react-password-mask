@@ -5,7 +5,7 @@ Show/hide the contents of a password field.
 [![See Demo](https://img.shields.io/badge/see-demo-0066ff.svg)](https://dl.dropboxusercontent.com/u/21334841/demos/react-password-mask/index.html)
 
 <a href="https://dl.dropboxusercontent.com/u/21334841/demos/react-password-mask/index.html">
-  <img src='https://www.dropbox.com/s/0n1i2hky5lyj7or/react-password-mask.gif?raw=1' />
+  <img src="https://www.dropbox.com/s/rop6okglcobb8tw/react-password-mask.gif?raw=1" />
 </a>
 
 ## Installation
@@ -22,11 +22,10 @@ import PasswordMask from 'react-password-mask';
 
 ```js
 <PasswordMask
-  value={this.state.password}
   id="password"
   name="password"
-  className="form-control"
   placeholder="Enter password"
+  value={this.state.password}
   onChange={this.handleChange.bind(this)}
 />
 ```

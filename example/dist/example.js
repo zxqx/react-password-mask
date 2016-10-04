@@ -120,7 +120,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          name: 'password',
 	          placeholder: 'Enter password',
 	          onChange: this.handleChange.bind(this),
-	          inputStyles: { padding: '8px', fontSize: '16px' }
+	          inputStyles: { padding: '8px', fontSize: '16px' },
+	          buttonStyles: { width: '61px' }
 	        })
 	      );
 	    }

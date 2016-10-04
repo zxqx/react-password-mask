@@ -29,6 +29,7 @@ export default class Example extends Component {
           placeholder="Enter password"
           onChange={this.handleChange.bind(this)}
           inputStyles={{ padding: '8px', fontSize: '16px' }}
+          buttonStyles={{ width: '61px' }}
         />
       </div>
     );
