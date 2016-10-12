@@ -1,4 +1,4 @@
-export const buttonStyles = {
+const buttonStyles = {
   position: 'absolute',
   top: '50%',
   right: '6px',
@@ -14,12 +14,14 @@ export const buttonStyles = {
   userSelect: 'none'
 };
 
-export const inputStyles = {
+const inputStyles = {
   width: '100%',
   display: 'block'
 };
 
-export const hiddenInputStyles = {
+const hiddenInputStyles = {
   ...inputStyles,
   display: 'none'
 };
+
+export { buttonStyles, inputStyles, hiddenInputStyles };
