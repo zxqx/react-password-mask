@@ -1,34 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-
-const buttonStyles = {
-  position: 'absolute',
-  top: '50%',
-  right: '6px',
-  marginTop: '-13px',
-  padding: '4px 10px',
-  background: '#e2e2e2',
-  borderRadius: '2px',
-  color: '#000',
-  textAlign: 'center',
-  textDecoration: 'none',
-  WebkitUserSelect: 'none',
-  MozUserSelect: 'none',
-  userSelect: 'none'
-};
-
-const inputStyles = {
-  width: '100%'
-};
-
-const shownInputStyles = {
-  ...inputStyles,
-  display: 'block'
-};
-
-const hiddenInputStyles = {
-  ...inputStyles,
-  display: 'none'
-};
+import { buttonStyles, inputStyles, hiddenInputStyles } from './styles.js';
 
 export default class PasswordMask extends Component {
   static propTypes = {
@@ -115,7 +86,7 @@ export default class PasswordMask extends Component {
           type="text"
           ref="text"
           style={{
-            ...this.state.showPassword ? shownInputStyles : hiddenInputStyles,
+            ...this.state.showPassword ? inputStyles : hiddenInputStyles,
             ...this.props.inputStyles
           }}
           value={value}
@@ -131,7 +102,7 @@ export default class PasswordMask extends Component {
           type="password"
           ref="password"
           style={{
-            ...this.state.showPassword ? hiddenInputStyles : shownInputStyles,
+            ...this.state.showPassword ? hiddenInputStyles : inputStyles,
             ...this.props.inputStyles
           }}
           value={value}
