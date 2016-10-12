@@ -36,6 +36,22 @@ describe('<PasswordMask />', () => {
     expect(component.find('a')).to.have.length(1);
   });
 
+  it('shows password field by default', () => {
+    const component = shallow(
+      <PasswordMask value={state.password} />
+    );
+
+    expect(component.find('input[type="password"]')).to.have.style('display', 'block');
+  });
+
+  it('hides text field by default', () => {
+    const component = shallow(
+      <PasswordMask value={state.password} />
+    );
+
+    expect(component.find('input[type="text"]')).to.have.style('display', 'none');
+  });
+
   it('updates internal showPassword state', () => {
     const component = shallow(
       <PasswordMask value={state.password} />
