@@ -36,69 +36,6 @@ describe('<PasswordMask />', () => {
     expect(component.find('a')).to.have.length(1);
   });
 
-  it('sets value passed from props', () => {
-    const component = shallow(
-      <PasswordMask value={state.password} />
-    );
-
-    expect(component.instance().props.value).to.equal('');
-  });
-
-  it('sets id passed from props', () => {
-    const component = shallow(
-      <PasswordMask
-        id="password"
-        value={state.password}
-      />
-    );
-
-    expect(component.instance().props.id).to.equal('password');
-  });
-
-  it('sets name passed from props', () => {
-    const component = shallow(
-      <PasswordMask
-        name="password"
-        value={state.password}
-      />
-    );
-
-    expect(component.instance().props.name).to.equal('password');
-  });
-
-  it('sets className passed from props', () => {
-    const component = shallow(
-      <PasswordMask
-        className="form-field"
-        value={state.password}
-      />
-    );
-
-    expect(component.instance().props.className).to.equal('form-field');
-  });
-
-  it('sets placeholder passed from props', () => {
-    const component = shallow(
-      <PasswordMask
-        placeholder="Enter password"
-        value={state.password}
-      />
-    );
-
-    expect(component.instance().props.placeholder).to.equal('Enter password');
-  });
-
-  it('sets onChange callback passed from props', () => {
-    const component = shallow(
-      <PasswordMask
-        value={state.password}
-        onChange={e => password = e.target.value}
-      />
-    );
-
-    expect(component.instance().props.onChange).to.not.be.undefined;
-  });
-
   it('updates internal showPassword state', () => {
     const component = shallow(
       <PasswordMask value={state.password} />
@@ -204,7 +141,7 @@ describe('<PasswordMask />', () => {
     expect(onToggle.calledTwice).to.equal(true);
   });
 
-  it('cancels mousedown event', () => {
+  it('cancels mouseDown event', () => {
     const preventDefault = sinon.spy();
 
     const component = shallow(
