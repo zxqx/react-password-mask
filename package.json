@@ -17,9 +17,12 @@
     "url": "git+https://github.com/zakangelle/react-password-mask.git"
   },
   "keywords": [
+    "react",
+    "component",
     "show",
     "hide",
     "password",
+    "input",
     "field",
     "mask"
   ],
