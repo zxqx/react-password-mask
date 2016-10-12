@@ -6,11 +6,12 @@
   "scripts": {
     "build": "webpack --mode=build",
     "example": "webpack --config=webpack.config.example.js",
+    "example:watch": "webpack --config=webpack.config.example.js --progress --colors --watch --mode=dev",
     "dev": "webpack --progress --colors --watch --mode=dev",
     "test": "mocha --compilers js:babel-core/register --colors ./test/*.js",
     "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.js",
     "preversion": "npm run build && npm run example",
-    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --compilers js:babel-core/register -R spec ./test/*.js && cat ./coverage/lcov.info | coveralls",
+    "coverage": "istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --compilers js:babel-core/register -R spec ./test/*.js && cat ./coverage/lcov.info | coveralls",
     "dropbox": "cp -r example/* ~/Dropbox/Public/demos/react-password-mask/"
   },
   "repository": {
