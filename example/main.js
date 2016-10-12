@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import PasswordMask from '../lib/passwordMask.js';
+import PasswordMask from '../src/index';
 
 export default class Example extends Component {
   constructor() {

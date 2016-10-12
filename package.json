@@ -8,8 +8,7 @@
     "dev": "webpack --progress --colors --watch --mode=dev",
     "test": "mocha --compilers js:babel-core/register --colors ./test/*.js",
     "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.js",
-    "example": "webpack --config=webpack.config.example.js",
-    "example:watch": "webpack --config=webpack.config.example.js --progress --colors --watch --mode=dev",
+    "example": "node example/server.js",
     "preversion": "npm run build",
     "coverage": "istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --compilers js:babel-core/register -R spec ./test/*.js && cat ./coverage/lcov.info | coveralls",
     "dropbox": "cp -r example/* ~/Dropbox/Public/demos/react-password-mask/"
@@ -54,6 +53,7 @@
     "eslint-config-airbnb": "^5.0.1",
     "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^3.16.1",
+    "html-webpack-plugin": "^2.22.0",
     "istanbul": "^1.1.0-alpha.1",
     "mocha": "^3.0.2",
     "react": "^15.3.2",
@@ -61,6 +61,8 @@
     "react-dom": "^15.3.2",
     "sinon": "^1.17.6",
     "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-hot-middleware": "^2.13.0",
     "yargs": "^5.0.0"
   }
 }
