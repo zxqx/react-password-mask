@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import sinon from 'sinon';
-import PasswordMask from '../src/index.js';
+import PasswordMask from '../src/index';
 
 chai.use(chaiEnzyme());
 

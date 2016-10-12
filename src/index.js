@@ -4,9 +4,9 @@ import { buttonStyles, inputStyles, hiddenInputStyles } from './styles.js';
 export default class PasswordMask extends Component {
   static propTypes = {
     value: PropTypes.any.isRequired,
-    className: PropTypes.string,
     id: PropTypes.string,
     name: PropTypes.string,
+    className: PropTypes.string,
     placeholder: PropTypes.string,
     onChange: PropTypes.func,
     onShow: PropTypes.func,
