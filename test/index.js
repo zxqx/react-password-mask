@@ -177,4 +177,23 @@ describe('<PasswordMask />', () => {
     showHideButton.simulate('click', { preventDefault: () => {} });
     expect(onToggle.calledTwice).to.equal(true);
   });
+
+  it('cancels mousedown event', () => {
+    const preventDefault = sinon.spy();
+
+    let wrapper = shallow(
+      <PasswordMask
+        id="password"
+        name="password"
+        className="form-field"
+        placeholder="Enter password"
+        value={password}
+        onChange={e => password = e.target.value}
+      />
+    );
+
+    const showHideButton = wrapper.find('a');
+    showHideButton.simulate('mouseDown', { preventDefault });
+    expect(preventDefault.calledOnce).to.equal(true);
+  });
 });

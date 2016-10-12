@@ -1,3 +1,13 @@
+const inputStyles = {
+  width: '100%',
+  display: 'block'
+};
+
+const hiddenInputStyles = {
+  ...inputStyles,
+  display: 'none'
+};
+
 const buttonStyles = {
   position: 'absolute',
   top: '50%',
@@ -14,14 +24,4 @@ const buttonStyles = {
   userSelect: 'none'
 };
 
-const inputStyles = {
-  width: '100%',
-  display: 'block'
-};
-
-const hiddenInputStyles = {
-  ...inputStyles,
-  display: 'none'
-};
-
-export { buttonStyles, inputStyles, hiddenInputStyles };
+export { inputStyles, hiddenInputStyles, buttonStyles };
