@@ -1,8 +1,4 @@
-var webpack = require('webpack');
-var path = require('path');
-var env = require('yargs').argv.mode;
-
-var config = {
+module.exports = {
   entry: __dirname + '/example/main.js',
   devtool: 'source-map',
   output: {
@@ -22,5 +18,3 @@ var config = {
     extensions: ['', '.js']
   }
 };
-
-module.exports = config;
