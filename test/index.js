@@ -42,23 +42,23 @@ describe('<PasswordMask />', () => {
   });
 
   it('sets value passed from props', () => {
-    expect(wrapper.instance().props.value).to.eql('');
+    expect(wrapper.instance().props.value).to.equal('');
   });
 
   it('sets id passed from props', () => {
-    expect(wrapper.instance().props.id).to.eql('password');
+    expect(wrapper.instance().props.id).to.equal('password');
   });
 
   it('sets name passed from props', () => {
-    expect(wrapper.instance().props.name).to.eql('password');
+    expect(wrapper.instance().props.name).to.equal('password');
   });
 
   it('sets className passed from props', () => {
-    expect(wrapper.instance().props.className).to.eql('form-field');
+    expect(wrapper.instance().props.className).to.equal('form-field');
   });
 
   it('sets placeholder passed from props', () => {
-    expect(wrapper.instance().props.placeholder).to.eql('Enter password');
+    expect(wrapper.instance().props.placeholder).to.equal('Enter password');
   });
 
   it('sets onChange callback passed from props', () => {
@@ -71,14 +71,110 @@ describe('<PasswordMask />', () => {
   });
 
   it('applies button styles passed from props', () => {
-    const input = wrapper.find('a');
-    expect(input).to.have.style('background', 'smoke');
+    const showHideButton = wrapper.find('a');
+    expect(showHideButton).to.have.style('background', 'smoke');
   });
 
-  it('calls onChange callback on key input', () => {
+  it('updates internal showPassword state', () => {
+    let wrapper = shallow(
+      <PasswordMask
+        id="password"
+        name="password"
+        className="form-field"
+        placeholder="Enter password"
+        value={password}
+        onChange={e => password = e.target.value}
+      />
+    );
+
+    const showHideButton = wrapper.find('a');
+    showHideButton.simulate('click', { preventDefault: () => {} });
+    expect(wrapper.instance().state.showPassword).to.equal(true);
+  });
+
+  it('updates internal hasBeenFocused state', () => {
+    let wrapper = shallow(
+      <PasswordMask
+        id="password"
+        name="password"
+        className="form-field"
+        placeholder="Enter password"
+        value={password}
+        onChange={e => password = e.target.value}
+      />
+    );
+
+    const input = wrapper.find('input[type="password"]');
+    input.simulate('focus');
+    expect(wrapper.instance().state.hasBeenFocused).to.equal(true);
+  });
+
+  it('calls onChange callback', () => {
     const input = wrapper.find('input[type="password"]');
     input.simulate('change', { target: { value: 'bval' } });
 
-    expect(password).to.eql('bval');
+    expect(password).to.equal('bval');
+  });
+
+  it('calls onShow callback', () => {
+    const onShow = sinon.spy();
+
+    let wrapper = shallow(
+      <PasswordMask
+        id="password"
+        name="password"
+        className="form-field"
+        placeholder="Enter password"
+        value={password}
+        onChange={e => password = e.target.value}
+        onShow={onShow}
+      />
+    );
+
+    const showHideButton = wrapper.find('a');
+    showHideButton.simulate('click', { preventDefault: () => {} });
+    expect(onShow.calledOnce).to.equal(true);
+  });
+
+  it('calls onHide callback', () => {
+    const onHide = sinon.spy();
+
+    let wrapper = shallow(
+      <PasswordMask
+        id="password"
+        name="password"
+        className="form-field"
+        placeholder="Enter password"
+        value={password}
+        onChange={e => password = e.target.value}
+        onHide={onHide}
+      />
+    );
+
+    const showHideButton = wrapper.find('a');
+    showHideButton.simulate('click', { preventDefault: () => {} });
+    showHideButton.simulate('click', { preventDefault: () => {} });
+    expect(onHide.calledOnce).to.equal(true);
+  });
+
+  it('calls onToggle callback', () => {
+    const onToggle = sinon.spy();
+
+    let wrapper = shallow(
+      <PasswordMask
+        id="password"
+        name="password"
+        className="form-field"
+        placeholder="Enter password"
+        value={password}
+        onChange={e => password = e.target.value}
+        onToggle={onToggle}
+      />
+    );
+
+    const showHideButton = wrapper.find('a');
+    showHideButton.simulate('click', { preventDefault: () => {} });
+    showHideButton.simulate('click', { preventDefault: () => {} });
+    expect(onToggle.calledTwice).to.equal(true);
   });
 });
