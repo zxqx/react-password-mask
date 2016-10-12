@@ -36,21 +36,21 @@ describe('<PasswordMask />', () => {
     expect(component.find('a')).to.have.length(1);
   });
 
-  it('defines attributes passed from props', () => {
+  it('defines HTML attributes passed from props', () => {
     const component = shallow(
-        <PasswordMask
-          value={state.password}
-          id="password"
-          name="password"
-          placeholder="Enter password"
-        />
+      <PasswordMask
+        value={state.password}
+        id="password"
+        name="password"
+        placeholder="Enter password"
+      />
     );
 
-    const passwordInput = component.find('input[type="password"]');
+    const input = component.find('input[type="password"]');
 
-    expect(passwordInput).to.have.attr('id').equal('password');
-    expect(passwordInput).to.have.attr('name').equal('password');
-    expect(passwordInput).to.have.attr('placeholder').equal('Enter password');
+    expect(input).to.have.attr('id').equal('password');
+    expect(input).to.have.attr('name').equal('password');
+    expect(input).to.have.attr('placeholder').equal('Enter password');
   });
 
   it('shows password field by default', () => {
