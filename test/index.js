@@ -76,6 +76,7 @@ describe('<PasswordMask />', () => {
 
     const showHideButton = component.find('a');
     showHideButton.simulate('click', { preventDefault: () => {} });
+
     expect(component.instance().state.showPassword).to.equal(true);
   });
 
@@ -86,6 +87,7 @@ describe('<PasswordMask />', () => {
 
     const input = component.find('input[type="password"]');
     input.simulate('focus');
+
     expect(component.instance().state.hasBeenFocused).to.equal(true);
   });
 
@@ -98,6 +100,7 @@ describe('<PasswordMask />', () => {
     );
 
     const input = component.find('input[type="password"]');
+
     expect(input).to.have.style('border-color', 'aqua');
   });
 
@@ -110,6 +113,7 @@ describe('<PasswordMask />', () => {
     );
 
     const showHideButton = component.find('a');
+
     expect(showHideButton).to.have.style('background', 'smoke');
   });
 
@@ -139,6 +143,7 @@ describe('<PasswordMask />', () => {
 
     const showHideButton = component.find('a');
     showHideButton.simulate('click', { preventDefault: () => {} });
+
     expect(onShow.calledOnce).to.equal(true);
   });
 
@@ -155,6 +160,7 @@ describe('<PasswordMask />', () => {
     const showHideButton = component.find('a');
     showHideButton.simulate('click', { preventDefault: () => {} });
     showHideButton.simulate('click', { preventDefault: () => {} });
+
     expect(onHide.calledOnce).to.equal(true);
   });
 
@@ -171,6 +177,7 @@ describe('<PasswordMask />', () => {
     const showHideButton = component.find('a');
     showHideButton.simulate('click', { preventDefault: () => {} });
     showHideButton.simulate('click', { preventDefault: () => {} });
+
     expect(onToggle.calledTwice).to.equal(true);
   });
 
@@ -183,6 +190,7 @@ describe('<PasswordMask />', () => {
 
     const showHideButton = component.find('a');
     showHideButton.simulate('mouseDown', { preventDefault });
+
     expect(preventDefault.calledOnce).to.equal(true);
   });
 });
