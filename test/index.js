@@ -7,15 +7,14 @@ import PasswordMask from '../src/index.js';
 
 chai.use(chaiEnzyme());
 
-let wrapper;
-let password = '';
-
-function onShow() {}
+const state = {
+  password: ''
+};
 
 describe('<PasswordMask />', () => {
   it('renders password field', () => {
     const wrapper = shallow(
-      <PasswordMask value={password} />
+      <PasswordMask value={state.password} />
     );
 
     expect(wrapper.find('input[type="password"]')).to.have.length(1);
@@ -23,7 +22,7 @@ describe('<PasswordMask />', () => {
 
   it('renders text field', () => {
     const wrapper = shallow(
-      <PasswordMask value={password} />
+      <PasswordMask value={state.password} />
     );
 
     expect(wrapper.find('input[type="text"]')).to.have.length(1);
@@ -31,7 +30,7 @@ describe('<PasswordMask />', () => {
 
   it('renders show/hide button', () => {
     const wrapper = shallow(
-      <PasswordMask value={password} />
+      <PasswordMask value={state.password} />
     );
 
     expect(wrapper.find('a')).to.have.length(1);
@@ -39,7 +38,7 @@ describe('<PasswordMask />', () => {
 
   it('sets value passed from props', () => {
     const wrapper = shallow(
-      <PasswordMask value={password} />
+      <PasswordMask value={state.password} />
     );
 
     expect(wrapper.instance().props.value).to.equal('');
@@ -49,7 +48,7 @@ describe('<PasswordMask />', () => {
     const wrapper = shallow(
       <PasswordMask
         id="password"
-        value={password}
+        value={state.password}
       />
     );
 
@@ -60,7 +59,7 @@ describe('<PasswordMask />', () => {
     const wrapper = shallow(
       <PasswordMask
         name="password"
-        value={password}
+        value={state.password}
       />
     );
 
@@ -71,7 +70,7 @@ describe('<PasswordMask />', () => {
     const wrapper = shallow(
       <PasswordMask
         className="form-field"
-        value={password}
+        value={state.password}
       />
     );
 
@@ -82,7 +81,7 @@ describe('<PasswordMask />', () => {
     const wrapper = shallow(
       <PasswordMask
         placeholder="Enter password"
-        value={password}
+        value={state.password}
       />
     );
 
@@ -92,7 +91,7 @@ describe('<PasswordMask />', () => {
   it('sets onChange callback passed from props', () => {
     const wrapper = shallow(
       <PasswordMask
-        value={password}
+        value={state.password}
         onChange={e => password = e.target.value}
       />
     );
@@ -102,7 +101,7 @@ describe('<PasswordMask />', () => {
 
   it('updates internal showPassword state', () => {
     const wrapper = shallow(
-      <PasswordMask value={password} />
+      <PasswordMask value={state.password} />
     );
 
     const showHideButton = wrapper.find('a');
@@ -112,7 +111,7 @@ describe('<PasswordMask />', () => {
 
   it('updates internal hasBeenFocused state', () => {
     const wrapper = shallow(
-      <PasswordMask value={password} />
+      <PasswordMask value={state.password} />
     );
 
     const input = wrapper.find('input[type="password"]');
@@ -123,7 +122,7 @@ describe('<PasswordMask />', () => {
   it('applies input styles passed from props', () => {
     const wrapper = shallow(
       <PasswordMask
-        value={password}
+        value={state.password}
         inputStyles={{ borderColor: 'aqua' }}
       />
     );
@@ -135,7 +134,7 @@ describe('<PasswordMask />', () => {
   it('applies button styles passed from props', () => {
     const wrapper = shallow(
       <PasswordMask
-        value={password}
+        value={state.password}
         buttonStyles={{ background: 'smoke' }}
       />
     );
@@ -147,15 +146,15 @@ describe('<PasswordMask />', () => {
   it('calls onChange callback', () => {
     const wrapper = shallow(
       <PasswordMask
-        value={password}
-        onChange={e => password = e.target.value}
+        value={state.password}
+        onChange={e => state.password = e.target.value}
       />
     );
 
     const input = wrapper.find('input[type="password"]');
     input.simulate('change', { target: { value: 'bval' } });
 
-    expect(password).to.equal('bval');
+    expect(state.password).to.equal('bval');
   });
 
   it('calls onShow callback', () => {
@@ -163,7 +162,7 @@ describe('<PasswordMask />', () => {
 
     const wrapper = shallow(
       <PasswordMask
-        value={password}
+        value={state.password}
         onShow={onShow}
       />
     );
@@ -178,7 +177,7 @@ describe('<PasswordMask />', () => {
 
     const wrapper = shallow(
       <PasswordMask
-        value={password}
+        value={state.password}
         onHide={onHide}
       />
     );
@@ -194,7 +193,7 @@ describe('<PasswordMask />', () => {
 
     const wrapper = shallow(
       <PasswordMask
-        value={password}
+        value={state.password}
         onToggle={onToggle}
       />
     );
@@ -209,7 +208,7 @@ describe('<PasswordMask />', () => {
     const preventDefault = sinon.spy();
 
     const wrapper = shallow(
-      <PasswordMask value={password} />
+      <PasswordMask value={state.password} />
     );
 
     const showHideButton = wrapper.find('a');
