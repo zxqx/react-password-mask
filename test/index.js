@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import sinon from 'sinon';
@@ -14,7 +14,10 @@ const state = {
 describe('<PasswordMask />', () => {
   it('renders password field', () => {
     const component = shallow(
-      <PasswordMask value={state.password} />
+      <PasswordMask
+        value={state.password}
+        onChange={e => state.password = e.target.value}
+      />
     );
 
     expect(component.find('input[type="password"]')).to.have.length(1);
@@ -22,7 +25,10 @@ describe('<PasswordMask />', () => {
 
   it('renders text field', () => {
     const component = shallow(
-      <PasswordMask value={state.password} />
+      <PasswordMask
+        value={state.password}
+        onChange={e => state.password = e.target.value}
+      />
     );
 
     expect(component.find('input[type="text"]')).to.have.length(1);
@@ -30,7 +36,10 @@ describe('<PasswordMask />', () => {
 
   it('renders show/hide button', () => {
     const component = shallow(
-      <PasswordMask value={state.password} />
+      <PasswordMask
+        value={state.password}
+        onChange={e => state.password = e.target.value}
+      />
     );
 
     expect(component.find('a')).to.have.length(1);
@@ -43,6 +52,7 @@ describe('<PasswordMask />', () => {
         id="password"
         name="password"
         placeholder="Enter password"
+        onChange={e => state.password = e.target.value}
       />
     );
 
@@ -55,7 +65,10 @@ describe('<PasswordMask />', () => {
 
   it('shows password field by default', () => {
     const component = shallow(
-      <PasswordMask value={state.password} />
+      <PasswordMask
+        value={state.password}
+        onChange={e => state.password = e.target.value}
+      />
     );
 
     expect(component.find('input[type="password"]')).to.have.style('display', 'block');
@@ -63,7 +76,10 @@ describe('<PasswordMask />', () => {
 
   it('hides text field by default', () => {
     const component = shallow(
-      <PasswordMask value={state.password} />
+      <PasswordMask
+        value={state.password}
+        onChange={e => state.password = e.target.value}
+      />
     );
 
     expect(component.find('input[type="text"]')).to.have.style('display', 'none');
@@ -71,7 +87,10 @@ describe('<PasswordMask />', () => {
 
   it('updates internal showPassword state', () => {
     const component = shallow(
-      <PasswordMask value={state.password} />
+      <PasswordMask
+        value={state.password}
+        onChange={e => state.password = e.target.value}
+      />
     );
 
     const showHideButton = component.find('a');
@@ -82,7 +101,10 @@ describe('<PasswordMask />', () => {
 
   it('updates internal hasBeenFocused state', () => {
     const component = shallow(
-      <PasswordMask value={state.password} />
+      <PasswordMask
+        value={state.password}
+        onChange={e => state.password = e.target.value}
+      />
     );
 
     const input = component.find('input[type="password"]');
@@ -96,6 +118,7 @@ describe('<PasswordMask />', () => {
       <PasswordMask
         value={state.password}
         inputStyles={{ borderColor: 'aqua' }}
+        onChange={e => state.password = e.target.value}
       />
     );
 
@@ -108,13 +131,14 @@ describe('<PasswordMask />', () => {
     const component = shallow(
       <PasswordMask
         value={state.password}
-        buttonStyles={{ background: 'smoke' }}
+        buttonStyles={{ background: 'cornsilk' }}
+        onChange={e => state.password = e.target.value}
       />
     );
 
     const showHideButton = component.find('a');
 
-    expect(showHideButton).to.have.style('background', 'smoke');
+    expect(showHideButton).to.have.style('background', 'cornsilk');
   });
 
   it('calls onChange callback', () => {
@@ -138,6 +162,7 @@ describe('<PasswordMask />', () => {
       <PasswordMask
         value={state.password}
         onShow={onShow}
+        onChange={e => state.password = e.target.value}
       />
     );
 
@@ -154,6 +179,7 @@ describe('<PasswordMask />', () => {
       <PasswordMask
         value={state.password}
         onHide={onHide}
+        onChange={e => state.password = e.target.value}
       />
     );
 
@@ -171,6 +197,7 @@ describe('<PasswordMask />', () => {
       <PasswordMask
         value={state.password}
         onToggle={onToggle}
+        onChange={e => state.password = e.target.value}
       />
     );
 
@@ -181,11 +208,33 @@ describe('<PasswordMask />', () => {
     expect(onToggle.calledTwice).to.equal(true);
   });
 
+  it('focuses visible field on show/hide', () => {
+    const component = mount(
+      <PasswordMask
+        value={state.password}
+        onChange={e => state.password = e.target.value}
+      />
+    );
+
+    const passwordInput = component.ref('password');
+    const textInput = component.ref('text');
+    const spy = sinon.spy(textInput.node, 'focus');
+    const showHideButton = component.find('a');
+
+    passwordInput.simulate('focus');
+    showHideButton.simulate('click');
+
+    expect(spy.calledOnce).to.equal(true);
+  });
+
   it('cancels mouseDown event', () => {
     const preventDefault = sinon.spy();
 
     const component = shallow(
-      <PasswordMask value={state.password} />
+      <PasswordMask
+        value={state.password}
+        onChange={e => state.password = e.target.value}
+      />
     );
 
     const showHideButton = component.find('a');
