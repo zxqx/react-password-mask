@@ -1,11 +1,11 @@
 {
   "name": "react-password-mask",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "Show/hide the contents of a password field.",
   "main": "lib/passwordMask.min.js",
   "scripts": {
-    "build": "webpack --mode=build",
-    "dev": "webpack --progress --colors --watch --mode=dev",
+    "build": "webpack --env=build",
+    "dev": "webpack --progress --colors --watch --env=dev",
     "test": "karma start test/karma.conf.js --single-run",
     "test:watch": "karma start test/karma.conf.js",
     "example": "node example/server.js",

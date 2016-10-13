@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const path = require('path');
-const env = require('yargs').argv.mode;
+const env = require('yargs').argv.env;
 
 var libraryName = 'passwordMask';
 
@@ -42,8 +42,7 @@ var config = {
     ]
   },
   resolve: {
-    root: path.resolve('./src'),
-    extensions: ['', '.js']
+    extensions: ['.js']
   },
   plugins: plugins
 };
