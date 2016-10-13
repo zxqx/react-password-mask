@@ -48,10 +48,15 @@ import PasswordMask from 'react-password-mask';
 
 ## Development
 
-Run the example app at [http://localhost:8080](http://localhost:8080) with hot reloading:
+Install dependencies:
 
 ```
 $ npm install
+```
+
+Run the example app at [http://localhost:8080](http://localhost:8080) with hot reloading:
+
+```
 $ npm run example
 ```
 
