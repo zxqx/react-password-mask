@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { buttonStyles, inputStyles, hiddenInputStyles } from './styles.js';
+import { buttonStyles, inputStyles } from './styles.js';
 
 export default class PasswordMask extends Component {
   static propTypes = {
@@ -70,7 +70,7 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, className, id, name, placeholder, onChange } = this.props;
+    const { value, id, name, className, placeholder, onChange } = this.props;
     const { passwordShown } = this.state;
 
     return (
@@ -78,15 +78,16 @@ export default class PasswordMask extends Component {
         <input
           type="password"
           ref="password"
-          style={{
-            ...passwordShown ? hiddenInputStyles : inputStyles,
-            ...this.props.inputStyles
-          }}
           value={value}
-          className={className}
           id={!passwordShown ? id : ''}
           name={!passwordShown ? name : ''}
+          className={className}
           placeholder={placeholder}
+          style={{
+            ...inputStyles,
+            ...this.props.inputStyles,
+            display: !passwordShown ? inputStyles.display : 'none'
+          }}
           onChange={onChange}
           onFocus={() => this.setState({ hasBeenFocused: true })}
         />
@@ -94,15 +95,16 @@ export default class PasswordMask extends Component {
         <input
           type="text"
           ref="text"
-          style={{
-            ...passwordShown ? inputStyles : hiddenInputStyles,
-            ...this.props.inputStyles
-          }}
           value={value}
-          className={className}
           id={passwordShown ? id : ''}
           name={passwordShown ? name : ''}
+          className={className}
           placeholder={placeholder}
+          style={{
+            ...inputStyles,
+            ...this.props.inputStyles,
+            display: passwordShown ? inputStyles.display : 'none'
+          }}
           onChange={onChange}
           onFocus={() => this.setState({ hasBeenFocused: true })}
         />

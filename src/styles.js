@@ -3,11 +3,6 @@ const inputStyles = {
   display: 'block'
 };
 
-const hiddenInputStyles = {
-  ...inputStyles,
-  display: 'none'
-};
-
 const buttonStyles = {
   position: 'absolute',
   top: '50%',
@@ -24,4 +19,4 @@ const buttonStyles = {
   userSelect: 'none'
 };
 
-export { inputStyles, hiddenInputStyles, buttonStyles };
+export { inputStyles, buttonStyles };
