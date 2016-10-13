@@ -208,7 +208,7 @@ describe('<PasswordMask />', () => {
     expect(onToggle.calledTwice).to.equal(true);
   });
 
-  it('focuses visible field on show/hide', () => {
+  it('focuses visible text field on show', () => {
     const component = mount(
       <PasswordMask
         value={state.password}
@@ -222,6 +222,26 @@ describe('<PasswordMask />', () => {
     const showHideButton = component.find('a');
 
     passwordInput.simulate('focus');
+    showHideButton.simulate('click');
+
+    expect(spy.calledOnce).to.equal(true);
+  });
+
+  it('focuses visible password field on hide', () => {
+    const component = mount(
+      <PasswordMask
+        value={state.password}
+        onChange={e => state.password = e.target.value}
+      />
+    );
+
+    const passwordInput = component.ref('password');
+    const textInput = component.ref('text');
+    const spy = sinon.spy(passwordInput.node, 'focus');
+    const showHideButton = component.find('a');
+
+    showHideButton.simulate('click');
+    textInput.simulate('focus');
     showHideButton.simulate('click');
 
     expect(spy.calledOnce).to.equal(true);
