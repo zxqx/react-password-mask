@@ -46,6 +46,27 @@ import PasswordMask from 'react-password-mask';
 | `inputStyles` | object  | The CSS styles to be applied to the password field.            |
 | `buttonStyles`| object  | The CSS styles to be applied to the show/hide button.          |
 
+## Development
+
+Run the example app at [http://localhost:8080](http://localhost:8080) with hot reloading:
+
+```
+$ npm install
+$ npm run example
+```
+
+Run tests:
+
+```
+$ npm test
+```
+
+Run tests and watch for code changes:
+
+```
+$ npm run test:watch
+```
+
 ## License
 
 MIT
