@@ -62,7 +62,7 @@ module.exports = function(config) {
       ]
     },
 
-    reporters: ['progress', 'coverage'],
+    reporters: ['mocha', 'coverage'],
 
     port: 9876,
 
