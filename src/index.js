@@ -86,7 +86,7 @@ export default class PasswordMask extends Component {
           style={{
             ...inputStyles,
             ...this.props.inputStyles,
-            display: !passwordShown ? inputStyles.display : 'none'
+            display: !passwordShown ? 'block' : 'none'
           }}
           onChange={onChange}
           onFocus={() => this.setState({ hasBeenFocused: true })}
@@ -103,7 +103,7 @@ export default class PasswordMask extends Component {
           style={{
             ...inputStyles,
             ...this.props.inputStyles,
-            display: passwordShown ? inputStyles.display : 'none'
+            display: passwordShown ? 'block' : 'none'
           }}
           onChange={onChange}
           onFocus={() => this.setState({ hasBeenFocused: true })}
