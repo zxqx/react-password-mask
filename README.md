@@ -1,4 +1,4 @@
-# react-password-mask
+# React Password Mask
 
 Show/hide the contents of a password field.
 
