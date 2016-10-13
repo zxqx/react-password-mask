@@ -208,6 +208,25 @@ describe('<PasswordMask />', () => {
     expect(onToggle.calledTwice).to.equal(true);
   });
 
+  it('focuses visible field on show/hide', () => {
+    const component = mount(
+      <PasswordMask
+        value={state.password}
+        onChange={e => state.password = e.target.value}
+      />
+    );
+
+    const passwordInput = component.ref('password');
+    const textInput = component.ref('text');
+    const spy = sinon.spy(textInput.node, 'focus');
+    const showHideButton = component.find('a');
+
+    passwordInput.simulate('focus');
+    showHideButton.simulate('click');
+
+    expect(spy.calledOnce).to.equal(true);
+  });
+
   it('cancels mouseDown event', () => {
     const preventDefault = sinon.spy();
 
