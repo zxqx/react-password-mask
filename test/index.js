@@ -85,7 +85,7 @@ describe('<PasswordMask />', () => {
     expect(component.find('input[type="text"]')).to.have.style('display', 'none');
   });
 
-  it('updates internal showPassword state', () => {
+  it('updates internal passwordShown state', () => {
     const component = shallow(
       <PasswordMask
         value={state.password}
@@ -96,7 +96,7 @@ describe('<PasswordMask />', () => {
     const showHideButton = component.find('a');
     showHideButton.simulate('click', { preventDefault: () => {} });
 
-    expect(component.instance().state.showPassword).to.equal(true);
+    expect(component.instance().state.passwordShown).to.equal(true);
   });
 
   it('updates internal hasBeenFocused state', () => {

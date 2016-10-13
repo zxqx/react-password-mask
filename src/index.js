@@ -20,64 +20,58 @@ export default class PasswordMask extends Component {
     super();
 
     this.state = {
-      showPassword: false,
+      passwordShown: false,
       hasBeenFocused: false
     };
   }
 
-  invokeCallbacks(value, showPassword) {
+  invokeCallbacks(value, passwordShown) {
     const { onShow, onHide, onToggle } = this.props;
-
-    if (!onToggle && !onShow && !onHide) {
-      return;
-    }
 
     if (onToggle) {
       onToggle(value);
     }
 
-    if (showPassword) {
-      if (onShow) {
-        onShow(value);
-      }
+    if (onShow && passwordShown) {
+      onShow(value);
     }
-    else {
-      if (onHide) {
-        onHide(value);
-      }
+
+    if (onHide && !passwordShown) {
+      onHide(value);
     }
   }
 
   focusVisibleField() {
-    const { showPassword } = this.state;
-    const visibleField = showPassword ? this.refs.text : this.refs.password;
+    const { passwordShown } = this.state;
+    const visibleField = passwordShown ? this.refs.text : this.refs.password;
 
     visibleField.focus();
   }
 
   componentWillUpdate(nextProps, nextState) {
-    const { showPassword } = this.state;
+    const { passwordShown } = this.state;
 
-    if (nextState.showPassword !== showPassword) {
-      this.invokeCallbacks(nextProps.value, nextState.showPassword);
+    if (nextState.passwordShown !== passwordShown) {
+      this.invokeCallbacks(nextProps.value, nextState.passwordShown);
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { showPassword, hasBeenFocused } = this.state;
+    const { passwordShown, hasBeenFocused } = this.state;
 
-    if (hasBeenFocused && prevState.showPassword !== showPassword) {
+    if (hasBeenFocused && prevState.passwordShown !== passwordShown) {
       this.focusVisibleField();
     }
   }
 
   togglePasswordMask() {
-    const { showPassword } = this.state;
-    this.setState({ showPassword: !showPassword });
+    const { passwordShown } = this.state;
+    this.setState({ passwordShown: !passwordShown });
   }
 
   render() {
     const { value, className, id, name, placeholder, onChange } = this.props;
+    const { passwordShown } = this.state;
 
     return (
       <div style={{ position: 'relative' }}>
@@ -85,13 +79,13 @@ export default class PasswordMask extends Component {
           type="password"
           ref="password"
           style={{
-            ...this.state.showPassword ? hiddenInputStyles : inputStyles,
+            ...passwordShown ? hiddenInputStyles : inputStyles,
             ...this.props.inputStyles
           }}
           value={value}
           className={className}
-          id={!this.state.showPassword ? id : ''}
-          name={!this.state.showPassword ? name : ''}
+          id={!passwordShown ? id : ''}
+          name={!passwordShown ? name : ''}
           placeholder={placeholder}
           onChange={onChange}
           onFocus={() => this.setState({ hasBeenFocused: true })}
@@ -101,13 +95,13 @@ export default class PasswordMask extends Component {
           type="text"
           ref="text"
           style={{
-            ...this.state.showPassword ? inputStyles : hiddenInputStyles,
+            ...passwordShown ? inputStyles : hiddenInputStyles,
             ...this.props.inputStyles
           }}
           value={value}
           className={className}
-          id={this.state.showPassword ? id : ''}
-          name={this.state.showPassword ? name : ''}
+          id={passwordShown ? id : ''}
+          name={passwordShown ? name : ''}
           placeholder={placeholder}
           onChange={onChange}
           onFocus={() => this.setState({ hasBeenFocused: true })}
@@ -125,7 +119,7 @@ export default class PasswordMask extends Component {
             this.togglePasswordMask();
           }}
         >
-          {this.state.showPassword ? 'Hide' : 'Show'}
+          {passwordShown ? 'Hide' : 'Show'}
         </a>
       </div>
     );
