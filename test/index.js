@@ -94,7 +94,7 @@ describe('<PasswordMask />', () => {
     );
 
     const showHideButton = component.find('a');
-    showHideButton.simulate('click', { preventDefault: () => {} });
+    showHideButton.simulate('click', { preventDefault: () => ({}) });
 
     expect(component.instance().state.passwordShown).to.equal(true);
   });
@@ -167,7 +167,7 @@ describe('<PasswordMask />', () => {
     );
 
     const showHideButton = component.find('a');
-    showHideButton.simulate('click', { preventDefault: () => {} });
+    showHideButton.simulate('click', { preventDefault: () => ({}) });
 
     expect(onShow.calledOnce).to.equal(true);
   });
@@ -184,8 +184,8 @@ describe('<PasswordMask />', () => {
     );
 
     const showHideButton = component.find('a');
-    showHideButton.simulate('click', { preventDefault: () => {} });
-    showHideButton.simulate('click', { preventDefault: () => {} });
+    showHideButton.simulate('click', { preventDefault: () => ({}) });
+    showHideButton.simulate('click', { preventDefault: () => ({}) });
 
     expect(onHide.calledOnce).to.equal(true);
   });
@@ -202,8 +202,8 @@ describe('<PasswordMask />', () => {
     );
 
     const showHideButton = component.find('a');
-    showHideButton.simulate('click', { preventDefault: () => {} });
-    showHideButton.simulate('click', { preventDefault: () => {} });
+    showHideButton.simulate('click', { preventDefault: () => ({}) });
+    showHideButton.simulate('click', { preventDefault: () => ({}) });
 
     expect(onToggle.calledTwice).to.equal(true);
   });

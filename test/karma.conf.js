@@ -1,6 +1,6 @@
-var path = require('path');
+const path = require('path');
 
-module.exports = function(config) {
+module.exports = config => {
   config.set({
     basePath: '../',
     frameworks: ['mocha'],
@@ -18,7 +18,7 @@ module.exports = function(config) {
       devtool: 'inline-source-map',
       module: {
         noParse: [
-          /\/sinon\.js/,
+          /\/sinon\.js/
         ],
         loaders: [
           {
@@ -29,12 +29,12 @@ module.exports = function(config) {
           {
             test: /\.json$/,
             loader: 'json'
-          },
+          }
         ]
       },
       resolve: {
         alias: {
-          sinon: 'sinon/pkg/sinon.js',
+          sinon: 'sinon/pkg/sinon.js'
         }
       },
       externals: {
@@ -75,5 +75,5 @@ module.exports = function(config) {
     browsers: ['Chrome'],
 
     singleRun: false
-  })
+  });
 };

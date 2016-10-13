@@ -9,7 +9,7 @@
     "test": "karma start test/karma.conf.js --single-run",
     "test:watch": "karma start test/karma.conf.js",
     "coverage": "cat ./coverage/lcov/lcov.info | coveralls",
-    "lint": "eslint src",
+    "lint": "eslint src test",
     "precommit": "npm run lint",
     "preversion": "npm run build",
     "example": "node example/server.js",
