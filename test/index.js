@@ -7,16 +7,12 @@ import PasswordMask from '../src/index';
 
 chai.use(chaiEnzyme());
 
-const state = {
-  password: ''
-};
-
 describe('<PasswordMask />', () => {
   it('renders password field', () => {
     const component = shallow(
       <PasswordMask
-        value={state.password}
-        onChange={e => state.password = e.target.value}
+        value={''}
+        onChange={() => ({})}
       />
     );
 
@@ -26,8 +22,8 @@ describe('<PasswordMask />', () => {
   it('renders text field', () => {
     const component = shallow(
       <PasswordMask
-        value={state.password}
-        onChange={e => state.password = e.target.value}
+        value={''}
+        onChange={() => ({})}
       />
     );
 
@@ -37,8 +33,8 @@ describe('<PasswordMask />', () => {
   it('renders show/hide button', () => {
     const component = shallow(
       <PasswordMask
-        value={state.password}
-        onChange={e => state.password = e.target.value}
+        value={''}
+        onChange={() => ({})}
       />
     );
 
@@ -48,11 +44,11 @@ describe('<PasswordMask />', () => {
   it('defines HTML attributes passed from props', () => {
     const component = shallow(
       <PasswordMask
-        value={state.password}
+        value={''}
         id="password"
         name="password"
         placeholder="Enter password"
-        onChange={e => state.password = e.target.value}
+        onChange={() => ({})}
       />
     );
 
@@ -66,8 +62,8 @@ describe('<PasswordMask />', () => {
   it('shows password field by default', () => {
     const component = shallow(
       <PasswordMask
-        value={state.password}
-        onChange={e => state.password = e.target.value}
+        value={''}
+        onChange={() => ({})}
       />
     );
 
@@ -77,8 +73,8 @@ describe('<PasswordMask />', () => {
   it('hides text field by default', () => {
     const component = shallow(
       <PasswordMask
-        value={state.password}
-        onChange={e => state.password = e.target.value}
+        value={''}
+        onChange={() => ({})}
       />
     );
 
@@ -88,8 +84,8 @@ describe('<PasswordMask />', () => {
   it('updates internal passwordShown state', () => {
     const component = shallow(
       <PasswordMask
-        value={state.password}
-        onChange={e => state.password = e.target.value}
+        value={''}
+        onChange={() => ({})}
       />
     );
 
@@ -102,8 +98,8 @@ describe('<PasswordMask />', () => {
   it('updates internal hasBeenFocused state', () => {
     const component = shallow(
       <PasswordMask
-        value={state.password}
-        onChange={e => state.password = e.target.value}
+        value={''}
+        onChange={() => ({})}
       />
     );
 
@@ -116,9 +112,9 @@ describe('<PasswordMask />', () => {
   it('applies input styles passed from props', () => {
     const component = shallow(
       <PasswordMask
-        value={state.password}
+        value={''}
         inputStyles={{ borderColor: 'aqua' }}
-        onChange={e => state.password = e.target.value}
+        onChange={() => ({})}
       />
     );
 
@@ -128,9 +124,9 @@ describe('<PasswordMask />', () => {
   it('applies button styles passed from props', () => {
     const component = shallow(
       <PasswordMask
-        value={state.password}
+        value={''}
         buttonStyles={{ background: 'cornsilk' }}
-        onChange={e => state.password = e.target.value}
+        onChange={() => ({})}
       />
     );
 
@@ -142,7 +138,7 @@ describe('<PasswordMask />', () => {
 
     const component = shallow(
       <PasswordMask
-        value={state.password}
+        value={''}
         onChange={onChange}
       />
     );
@@ -158,9 +154,9 @@ describe('<PasswordMask />', () => {
 
     const component = shallow(
       <PasswordMask
-        value={state.password}
+        value={''}
         onShow={onShow}
-        onChange={e => state.password = e.target.value}
+        onChange={() => ({})}
       />
     );
 
@@ -175,9 +171,9 @@ describe('<PasswordMask />', () => {
 
     const component = shallow(
       <PasswordMask
-        value={state.password}
+        value={''}
         onHide={onHide}
-        onChange={e => state.password = e.target.value}
+        onChange={() => ({})}
       />
     );
 
@@ -193,9 +189,9 @@ describe('<PasswordMask />', () => {
 
     const component = shallow(
       <PasswordMask
-        value={state.password}
+        value={''}
         onToggle={onToggle}
-        onChange={e => state.password = e.target.value}
+        onChange={() => ({})}
       />
     );
 
@@ -209,8 +205,8 @@ describe('<PasswordMask />', () => {
   it('focuses visible text field on show', () => {
     const component = mount(
       <PasswordMask
-        value={state.password}
-        onChange={e => state.password = e.target.value}
+        value={''}
+        onChange={() => ({})}
       />
     );
 
@@ -228,8 +224,8 @@ describe('<PasswordMask />', () => {
   it('focuses visible password field on hide', () => {
     const component = mount(
       <PasswordMask
-        value={state.password}
-        onChange={e => state.password = e.target.value}
+        value={''}
+        onChange={() => ({})}
       />
     );
 
@@ -250,8 +246,8 @@ describe('<PasswordMask />', () => {
 
     const component = shallow(
       <PasswordMask
-        value={state.password}
-        onChange={e => state.password = e.target.value}
+        value={''}
+        onChange={() => ({})}
       />
     );
 
