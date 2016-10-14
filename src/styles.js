@@ -1,8 +1,8 @@
-const inputStyles = {
+export const inputStyles = {
   width: '100%'
 };
 
-const buttonStyles = {
+export const buttonStyles = {
   position: 'absolute',
   top: '50%',
   right: '6px',
@@ -17,5 +17,3 @@ const buttonStyles = {
   MozUserSelect: 'none',
   userSelect: 'none'
 };
-
-export { inputStyles, buttonStyles };
