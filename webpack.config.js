@@ -3,23 +3,13 @@ const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const path = require('path');
 const env = require('yargs').argv.env;
 
-var libraryName = 'passwordMask';
+const libraryName = 'passwordMask';
 
-var plugins = [], outputFile;
-
-if (env === 'build') {
-  plugins.push(new UglifyJsPlugin({ minimize: true }));
-  outputFile = libraryName + '.min.js';
-} else {
-  outputFile = libraryName + '.js';
-}
-
-var config = {
+module.exports = {
   entry: __dirname + '/src/index.js',
-  devtool: 'source-map',
   output: {
     path: __dirname + '/lib',
-    filename: outputFile,
+    filename: libraryName + '.min.js',
     library: libraryName,
     libraryTarget: 'umd',
     umdNamedDefine: true
@@ -44,7 +34,5 @@ var config = {
   resolve: {
     extensions: ['.js']
   },
-  plugins: plugins
+  plugins: [new UglifyJsPlugin({ minimize: true })]
 };
-
-module.exports = config;

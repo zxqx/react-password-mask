@@ -4,8 +4,7 @@
   "description": "Show/hide the contents of a password field.",
   "main": "lib/passwordMask.min.js",
   "scripts": {
-    "build": "webpack --env=build",
-    "dev": "webpack --progress --colors --watch --env=dev",
+    "build": "webpack",
     "test": "karma start test/karma.conf.js",
     "coverage": "cat ./coverage/lcov/lcov.info | coveralls",
     "lint": "eslint src test",

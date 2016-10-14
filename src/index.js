@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { buttonStyles, inputStyles } from './styles.js';
+import { inputStyles, buttonStyles } from './styles.js';
 
 export default class PasswordMask extends Component {
   static propTypes = {

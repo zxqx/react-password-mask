@@ -1,4 +1,3 @@
-/* eslint no-console: 0 */
 const webpack = require('webpack');
 const webpackDevServer = require('webpack-dev-server');
 
