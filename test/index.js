@@ -20,7 +20,7 @@ describe('<PasswordMask />', () => {
       />
     );
 
-    expect(component.find('input[type="password"]')).to.have.length(1);
+    expect(component.find('input[type="password"]')).to.be.present();
   });
 
   it('renders text field', () => {
@@ -31,7 +31,7 @@ describe('<PasswordMask />', () => {
       />
     );
 
-    expect(component.find('input[type="text"]')).to.have.length(1);
+    expect(component.find('input[type="text"]')).to.be.present();
   });
 
   it('renders show/hide button', () => {
@@ -42,7 +42,7 @@ describe('<PasswordMask />', () => {
       />
     );
 
-    expect(component.find('a')).to.have.length(1);
+    expect(component.find('a')).to.be.present();
   });
 
   it('defines HTML attributes passed from props', () => {
