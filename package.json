@@ -6,8 +6,7 @@
   "scripts": {
     "build": "webpack --env=build",
     "dev": "webpack --progress --colors --watch --env=dev",
-    "test": "karma start test/karma.conf.js --single-run",
-    "test:watch": "karma start test/karma.conf.js",
+    "test": "karma start test/karma.conf.js",
     "coverage": "cat ./coverage/lcov/lcov.info | coveralls",
     "lint": "eslint src test",
     "precommit": "npm run lint",

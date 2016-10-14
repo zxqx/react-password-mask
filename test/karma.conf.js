@@ -1,4 +1,5 @@
 const path = require('path');
+const watch = require('yargs').argv.watch;
 
 module.exports = config => {
   config.set({
@@ -74,6 +75,6 @@ module.exports = config => {
 
     browsers: ['Chrome'],
 
-    singleRun: false
+    singleRun: !watch
   });
 };

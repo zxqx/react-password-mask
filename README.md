@@ -69,7 +69,7 @@ $ npm test
 Run tests and watch for code changes:
 
 ```
-$ npm run test:watch
+$ npm test -- --watch
 ```
 
 ## License
