@@ -142,17 +142,19 @@ describe('<PasswordMask />', () => {
   });
 
   it('calls onChange callback', () => {
+    const onChange = sinon.spy();
+
     const component = shallow(
       <PasswordMask
         value={state.password}
-        onChange={e => state.password = e.target.value}
+        onChange={onChange}
       />
     );
 
     const input = component.find('input[type="password"]');
-    input.simulate('change', { target: { value: 'bval' } });
+    input.simulate('change');
 
-    expect(state.password).to.equal('bval');
+    expect(onChange.calledOnce).to.equal(true);
   });
 
   it('calls onShow callback', () => {
