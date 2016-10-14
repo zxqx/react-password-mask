@@ -122,9 +122,7 @@ describe('<PasswordMask />', () => {
       />
     );
 
-    const input = component.find('input[type="password"]');
-
-    expect(input).to.have.style('border-color', 'aqua');
+    expect(component.find('input[type="password"]')).to.have.style('border-color', 'aqua');
   });
 
   it('applies button styles passed from props', () => {
@@ -136,9 +134,7 @@ describe('<PasswordMask />', () => {
       />
     );
 
-    const showHideButton = component.find('a');
-
-    expect(showHideButton).to.have.style('background', 'cornsilk');
+    expect(component.find('a')).to.have.style('background', 'cornsilk');
   });
 
   it('calls onChange callback', () => {
