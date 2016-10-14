@@ -149,7 +149,7 @@ describe('<PasswordMask />', () => {
     expect(onChange.calledOnce).to.equal(true);
   });
 
-  it('calls onShow callback', () => {
+  it('calls onShow callback with value argument', () => {
     const onShow = sinon.spy();
 
     const component = shallow(
@@ -163,10 +163,10 @@ describe('<PasswordMask />', () => {
     const showHideButton = component.find('a');
     showHideButton.simulate('click', { preventDefault: () => ({}) });
 
-    expect(onShow.calledOnce).to.equal(true);
+    expect(onShow.withArgs('').calledOnce).to.equal(true);
   });
 
-  it('calls onHide callback', () => {
+  it('calls onHide callback with value argument', () => {
     const onHide = sinon.spy();
 
     const component = shallow(
@@ -181,10 +181,10 @@ describe('<PasswordMask />', () => {
     showHideButton.simulate('click', { preventDefault: () => ({}) });
     showHideButton.simulate('click', { preventDefault: () => ({}) });
 
-    expect(onHide.calledOnce).to.equal(true);
+    expect(onHide.withArgs('').calledOnce).to.equal(true);
   });
 
-  it('calls onToggle callback', () => {
+  it('calls onToggle callback with value argument', () => {
     const onToggle = sinon.spy();
 
     const component = shallow(
@@ -199,7 +199,7 @@ describe('<PasswordMask />', () => {
     showHideButton.simulate('click', { preventDefault: () => ({}) });
     showHideButton.simulate('click', { preventDefault: () => ({}) });
 
-    expect(onToggle.calledTwice).to.equal(true);
+    expect(onToggle.withArgs('').calledTwice).to.equal(true);
   });
 
   it('focuses visible text field on show', () => {
