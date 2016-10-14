@@ -54,7 +54,7 @@ Install dependencies:
 $ npm install
 ```
 
-Run the example app at [http://localhost:8080](http://localhost:8080) with hot reloading:
+Run the example app (with hot reloading) at [http://localhost:8080](http://localhost:8080):
 
 ```
 $ npm run example
