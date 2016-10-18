@@ -4,15 +4,15 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: __dirname + '/example/main.js',
+  entry: __dirname + '/main.js',
   output: {
-    path: __dirname + '/example/dist',
+    path: __dirname + '/dist',
     filename: 'example.[hash].js'
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin({
-      template: './example/index.html',
+      template: __dirname + '/index.html',
       filename: 'index.html'
     }),
     new webpack.DefinePlugin({
@@ -21,7 +21,7 @@ module.exports = {
       }
     }),
     new CopyWebpackPlugin([{
-      from: './example/style.css'
+      from: __dirname + '/style.css'
     }]),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -36,8 +36,8 @@ module.exports = {
         test: /(\.jsx|\.js)$/,
         loader: 'babel',
         include: [
-          path.resolve(__dirname, './example/main.js'),
-          path.resolve(__dirname, './src')
+          path.resolve(__dirname, './main.js'),
+          path.resolve(__dirname, '../src')
         ],
         exclude: /node_modules/
       }
