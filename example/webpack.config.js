@@ -31,7 +31,14 @@ module.exports = {
           path.resolve(__dirname, '../src')
         ],
         exclude: /node_modules/
-      }
+      },
+      {
+        test: /\.css$/,
+        loaders: [
+          'style?sourceMap',
+          'css?sourceMap&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+        ]
+      },
     ]
   },
   resolve: {

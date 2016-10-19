@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: __dirname + '/main.js',
@@ -15,14 +15,10 @@ module.exports = {
       template: __dirname + '/index.html',
       filename: 'index.html'
     }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
+    new ExtractTextPlugin({
+      filename: 'index.[hash].css',
+      allChunks: true
     }),
-    new CopyWebpackPlugin([{
-      from: __dirname + '/style.css'
-    }]),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         screw_ie8: true,
@@ -40,6 +36,13 @@ module.exports = {
           path.resolve(__dirname, '../src')
         ],
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader'
+        })
       }
     ]
   },

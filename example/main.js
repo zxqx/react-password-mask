@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PasswordMask from '../src/index';
+import './style.css';
 
 export default class Example extends Component {
   constructor() {
