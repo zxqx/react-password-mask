@@ -7,7 +7,7 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:8080/',
     'webpack/hot/dev-server',
     'webpack-hot-middleware/client',
-    __dirname + '/main.js'
+    __dirname + '/index.js'
   ],
   devtool: 'source-map',
   output: {
@@ -27,7 +27,7 @@ module.exports = {
         test: /(\.jsx|\.js)$/,
         loader: 'babel',
         include: [
-          path.resolve(__dirname, './main.js'),
+          path.resolve(__dirname, '../example'),
           path.resolve(__dirname, '../src')
         ],
         exclude: /node_modules/

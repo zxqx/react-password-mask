@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: __dirname + '/main.js',
+  entry: __dirname + '/index.js',
   output: {
     path: __dirname + '/dist',
     filename: 'example.[hash].js'
@@ -37,7 +37,7 @@ module.exports = {
         test: /(\.jsx|\.js)$/,
         loader: 'babel',
         include: [
-          path.resolve(__dirname, './main.js'),
+          path.resolve(__dirname, '../example'),
           path.resolve(__dirname, '../src')
         ],
         exclude: /node_modules/
