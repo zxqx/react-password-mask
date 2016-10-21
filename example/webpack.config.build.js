@@ -4,15 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: __dirname + '/index.js',
+  entry: path.join(__dirname, 'index.js'),
   output: {
-    path: __dirname + '/dist',
+    path: path.join(__dirname, 'dist'),
     filename: 'example.[hash].js'
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin({
-      template: __dirname + '/index.html',
+      template: path.join(__dirname, 'index.html'),
       filename: 'index.html'
     }),
     new ExtractTextPlugin({
@@ -37,7 +37,7 @@ module.exports = {
         test: /(\.jsx|\.js)$/,
         loader: 'babel',
         include: [
-          path.resolve(__dirname, '../example'),
+          path.resolve(__dirname),
           path.resolve(__dirname, '../src')
         ],
         exclude: /node_modules/

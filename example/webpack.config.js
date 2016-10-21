@@ -7,17 +7,17 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:8080/',
     'webpack/hot/dev-server',
     'webpack-hot-middleware/client',
-    __dirname + '/index.js'
+    path.join(__dirname, 'index.js')
   ],
   devtool: 'source-map',
   output: {
-    path: __dirname + '/dist',
+    path: path.join(__dirname, 'dist'),
     filename: 'example.[hash].js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: __dirname + '/index.html',
+      template: path.join(__dirname, 'index.html'),
       filename: 'index.html'
     }),
   ],
@@ -27,7 +27,7 @@ module.exports = {
         test: /(\.jsx|\.js)$/,
         loader: 'babel',
         include: [
-          path.resolve(__dirname, '../example'),
+          path.resolve(__dirname),
           path.resolve(__dirname, '../src')
         ],
         exclude: /node_modules/
