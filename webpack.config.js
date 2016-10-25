@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 const libraryName = 'passwordMask';
 
@@ -33,5 +32,5 @@ module.exports = {
   resolve: {
     extensions: ['.js']
   },
-  plugins: [new UglifyJsPlugin({ minimize: true })]
+  plugins: [new webpack.optimize.UglifyJsPlugin({ minimize: true })]
 };
