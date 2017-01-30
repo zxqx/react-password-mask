@@ -17,7 +17,7 @@
     "dropbox": "cp -r example/dist/* ~/Dropbox/Public/demos/react-password-mask/"
   },
   "jest": {
-    "testRegex": "test/index.js",
+    "testRegex": "(/test/.*|(\\.|/))\\.js?$",
     "moduleFileExtensions": [
       "js",
       "json"
