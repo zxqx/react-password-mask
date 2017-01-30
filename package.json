@@ -71,7 +71,7 @@
     "eslint-config-airbnb": "^5.0.1",
     "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^3.16.1",
-    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "extract-text-webpack-plugin": "^2.0.0-rc.1",
     "html-webpack-plugin": "^2.22.0",
     "husky": "^0.11.9",
     "jest": "^18.1.0",
@@ -82,8 +82,8 @@
     "react-test-renderer": "^15.4.2",
     "sinon": "^1.17.6",
     "style-loader": "^0.13.1",
-    "webpack": "^2.1.0-beta.25",
-    "webpack-dev-server": "^2.1.0-beta.9",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.2.0",
     "yargs": "^5.0.0"
   }
 }
