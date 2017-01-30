@@ -1,84 +1,24 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import chai, { expect } from 'chai';
-import chaiEnzyme from 'chai-enzyme';
 import sinon from 'sinon';
+import renderer from 'react-test-renderer';
 import PasswordMask from '../src/index';
 
-chai.use(chaiEnzyme());
-
 describe('<PasswordMask />', () => {
-  it('renders password field', () => {
-    const component = shallow(
-      <PasswordMask
-        value={''}
-        onChange={() => ({})}
-      />
-    );
-
-    expect(component.find('input[type="password"]')).to.be.present();
-  });
-
-  it('renders text field', () => {
-    const component = shallow(
-      <PasswordMask
-        value={''}
-        onChange={() => ({})}
-      />
-    );
-
-    expect(component.find('input[type="text"]')).to.be.present();
-  });
-
-  it('renders show/hide button', () => {
-    const component = shallow(
-      <PasswordMask
-        value={''}
-        onChange={() => ({})}
-      />
-    );
-
-    expect(component.find('a')).to.be.present();
-  });
-
-  it('defines HTML attributes passed from props', () => {
-    const component = shallow(
+  it('renders password mask', () => {
+    const tree = renderer.create(
       <PasswordMask
         value={''}
         id="password"
         name="password"
         placeholder="Enter password"
+        inputStyles={{ borderColor: 'aqua' }}
+        buttonStyles={{ background: 'cornsilk' }}
         onChange={() => ({})}
       />
-    );
+    ).toJSON();
 
-    const input = component.find('input[type="password"]');
-
-    expect(input).to.have.attr('id').equal('password');
-    expect(input).to.have.attr('name').equal('password');
-    expect(input).to.have.attr('placeholder').equal('Enter password');
-  });
-
-  it('shows password field by default', () => {
-    const component = shallow(
-      <PasswordMask
-        value={''}
-        onChange={() => ({})}
-      />
-    );
-
-    expect(component.find('input[type="password"]')).to.have.style('display', 'block');
-  });
-
-  it('hides text field by default', () => {
-    const component = shallow(
-      <PasswordMask
-        value={''}
-        onChange={() => ({})}
-      />
-    );
-
-    expect(component.find('input[type="text"]')).to.have.style('display', 'none');
+    expect(tree).toMatchSnapshot();
   });
 
   it('updates internal passwordShown state', () => {
@@ -92,7 +32,7 @@ describe('<PasswordMask />', () => {
     const showHideButton = component.find('a');
     showHideButton.simulate('click', { preventDefault: () => ({}) });
 
-    expect(component.instance().state.passwordShown).to.equal(true);
+    expect(component.instance().state.passwordShown).toEqual(true);
   });
 
   it('updates internal hasBeenFocused state', () => {
@@ -106,31 +46,7 @@ describe('<PasswordMask />', () => {
     const input = component.find('input[type="password"]');
     input.simulate('focus');
 
-    expect(component.instance().state.hasBeenFocused).to.equal(true);
-  });
-
-  it('applies input styles passed from props', () => {
-    const component = shallow(
-      <PasswordMask
-        value={''}
-        inputStyles={{ borderColor: 'aqua' }}
-        onChange={() => ({})}
-      />
-    );
-
-    expect(component.find('input[type="password"]')).to.have.style('border-color', 'aqua');
-  });
-
-  it('applies button styles passed from props', () => {
-    const component = shallow(
-      <PasswordMask
-        value={''}
-        buttonStyles={{ background: 'cornsilk' }}
-        onChange={() => ({})}
-      />
-    );
-
-    expect(component.find('a')).to.have.style('background', 'cornsilk');
+    expect(component.instance().state.hasBeenFocused).toEqual(true);
   });
 
   it('calls onChange callback', () => {
@@ -146,7 +62,7 @@ describe('<PasswordMask />', () => {
     const input = component.find('input[type="password"]');
     input.simulate('change');
 
-    expect(onChange.calledOnce).to.equal(true);
+    expect(onChange.calledOnce).toEqual(true);
   });
 
   it('calls onShow callback with value argument', () => {
@@ -163,7 +79,7 @@ describe('<PasswordMask />', () => {
     const showHideButton = component.find('a');
     showHideButton.simulate('click', { preventDefault: () => ({}) });
 
-    expect(onShow.withArgs('').calledOnce).to.equal(true);
+    expect(onShow.withArgs('').calledOnce).toEqual(true);
   });
 
   it('calls onHide callback with value argument', () => {
@@ -181,7 +97,7 @@ describe('<PasswordMask />', () => {
     showHideButton.simulate('click', { preventDefault: () => ({}) });
     showHideButton.simulate('click', { preventDefault: () => ({}) });
 
-    expect(onHide.withArgs('').calledOnce).to.equal(true);
+    expect(onHide.withArgs('').calledOnce).toEqual(true);
   });
 
   it('calls onToggle callback with value argument', () => {
@@ -199,7 +115,7 @@ describe('<PasswordMask />', () => {
     showHideButton.simulate('click', { preventDefault: () => ({}) });
     showHideButton.simulate('click', { preventDefault: () => ({}) });
 
-    expect(onToggle.withArgs('').calledTwice).to.equal(true);
+    expect(onToggle.withArgs('').calledTwice).toEqual(true);
   });
 
   it('focuses visible text field on show', () => {
@@ -218,7 +134,7 @@ describe('<PasswordMask />', () => {
     passwordInput.simulate('focus');
     showHideButton.simulate('click');
 
-    expect(spy.calledOnce).to.equal(true);
+    expect(spy.calledOnce).toEqual(true);
   });
 
   it('focuses visible password field on hide', () => {
@@ -238,7 +154,7 @@ describe('<PasswordMask />', () => {
     textInput.simulate('focus');
     showHideButton.simulate('click');
 
-    expect(spy.calledOnce).to.equal(true);
+    expect(spy.calledOnce).toEqual(true);
   });
 
   it('cancels mouseDown event', () => {
@@ -254,6 +170,6 @@ describe('<PasswordMask />', () => {
     const showHideButton = component.find('a');
     showHideButton.simulate('mouseDown', { preventDefault });
 
-    expect(preventDefault.calledOnce).to.equal(true);
+    expect(preventDefault.calledOnce).toEqual(true);
   });
 });
