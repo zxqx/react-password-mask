@@ -24,7 +24,7 @@ module.exports = {
     loaders: [
       {
         test: /(\.jsx|\.js)$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         include: [
           path.resolve(__dirname),
           path.resolve(__dirname, '../src')
@@ -34,8 +34,8 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: [
-          'style?sourceMap',
-          'css?sourceMap&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+          'style-loader?sourceMap',
+          'css-loader?sourceMap&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
         ]
       },
     ]
