@@ -16,6 +16,9 @@
     "max-len": 0,
     "brace-style": [2, "stroustrup"]
   },
+  "globals": {
+    "expect": true
+  },
   "plugins": [
     "react"
   ]
