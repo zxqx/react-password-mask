@@ -32,10 +32,10 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /(\.jsx|\.js)$/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
         include: [
           path.resolve(__dirname),
           path.resolve(__dirname, '../src')
@@ -44,14 +44,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader'
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
         })
       }
     ]
-  },
-  resolve: {
-    extensions: ['.js']
   }
 };

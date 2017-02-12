@@ -16,21 +16,18 @@ module.exports = {
     react: 'react'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /(\.jsx|\.js)$/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
         exclude: /node_modules/
       },
       {
         test: /(\.jsx|\.js)$/,
-        loader: 'eslint-loader',
+        use: 'eslint-loader',
         exclude: /node_modules/
       }
     ]
-  },
-  resolve: {
-    extensions: ['.js']
   },
   plugins: [new webpack.optimize.UglifyJsPlugin({ minimize: true })]
 };

@@ -11,7 +11,7 @@
     "coverage": "cat ./coverage/lcov.info | coveralls",
     "lint": "eslint src test",
     "preversion": "npm run build",
-    "example": "node example/server.js",
+    "example": "webpack-dev-server --config example/webpack.config.js",
     "example:build": "cross-env NODE_ENV=production webpack --config example/webpack.config.build.js",
     "dropbox": "cp -r example/dist/* ~/Dropbox/Public/demos/react-password-mask/"
   },

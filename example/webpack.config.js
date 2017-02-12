@@ -3,28 +3,34 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: [
-    'webpack-dev-server/client?http://localhost:8080/',
-    'webpack/hot/dev-server',
-    path.join(__dirname, 'index.js')
-  ],
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
+  entry: {
+    app: path.join(__dirname, './index.js')
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'example.[hash].js'
   },
+  devServer: {
+    hot: true,
+    stats: {
+      colors: true,
+    },
+    historyApiFallback: true
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'index.html'),
       filename: 'index.html'
     }),
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /(\.jsx|\.js)$/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
         include: [
           path.resolve(__dirname),
           path.resolve(__dirname, '../src')
@@ -33,14 +39,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: [
+        use: [
           'style-loader?sourceMap',
           'css-loader?sourceMap&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
         ]
       },
     ]
-  },
-  resolve: {
-    extensions: ['.js']
   }
 };
