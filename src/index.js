@@ -16,13 +16,9 @@ export default class PasswordMask extends Component {
     buttonStyles: PropTypes.object
   };
 
-  constructor() {
-    super();
-
-    this.state = {
-      passwordShown: false,
-      hasBeenFocused: false
-    };
+  state = {
+    passwordShown: false,
+    hasBeenFocused: false
   }
 
   invokeCallbacks(value, passwordShown) {
