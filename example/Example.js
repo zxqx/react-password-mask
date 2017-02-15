@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import PasswordMask from '../src/index';
 
 export default class Example extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      password: ''
-    };
+  state = {
+    password: ''
   }
 
   handleChange(e) {
