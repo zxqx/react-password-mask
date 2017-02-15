@@ -10,7 +10,6 @@ module.exports = {
     filename: 'example.[hash].js'
   },
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'index.html'),
       filename: 'index.html'

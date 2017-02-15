@@ -12,8 +12,7 @@
     "lint": "eslint src test",
     "preversion": "npm run build",
     "example": "webpack-dev-server --config example/webpack.config.js",
-    "example:build": "cross-env NODE_ENV=production webpack --config example/webpack.config.build.js",
-    "dropbox": "cp -r example/dist/* ~/Dropbox/Public/demos/react-password-mask/"
+    "example:build": "cross-env NODE_ENV=production webpack --config example/webpack.config.build.js"
   },
   "jest": {
     "testRegex": "(/test/.*|(\\.|/))\\.js?$",
@@ -53,9 +52,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
-    "babel-core": "^6.14.0",
     "babel-eslint": "^6.1.2",
-    "babel-jest": "^18.0.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.22.0",
@@ -72,7 +69,6 @@
     "extract-text-webpack-plugin": "^2.0.0-rc.1",
     "html-webpack-plugin": "^2.22.0",
     "jest": "^18.1.0",
-    "json-loader": "^0.5.4",
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.3.2",
