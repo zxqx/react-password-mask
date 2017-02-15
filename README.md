@@ -39,7 +39,7 @@ import PasswordMask from 'react-password-mask';
 | `name`        | string    | The HTML `name` attribute used for the password field.        |
 | `className`   | string    | A space-separated list of HTML `class` attributes.            |
 | `placeholder` | string    | The HTML `placeholder` attribute used for the password field. |
-| `onChange`    | function  | A callback function to be invoked when the `value` of the field changes. Receives an argument containing the current value of the field. |
+| `onChange`    | function  | A callback function to be invoked when the `value` of the field changes. Receives an argument containing the React `SyntheticEvent` object. |
 | `onShow`      | function  | A callback function to be invoked when the `value` of the field is shown. Receives an argument containing the current value of the field. |
 | `onHide`      | function  | A callback function to be invoked when the `value` of the field is masked. Receives an argument containing the current value of the field. |
 | `onToggle`    | function  | A callback function to be invoked when the `value` of the field is shown or masked. Receives an argument containing the current value of the field. |
