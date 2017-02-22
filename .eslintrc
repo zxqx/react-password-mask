@@ -4,7 +4,7 @@
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true
+    "jest": true
   },
   "rules": {
     "react/jsx-no-bind": 0,
@@ -15,9 +15,6 @@
     "new-cap": 0,
     "max-len": 0,
     "brace-style": [2, "stroustrup"]
-  },
-  "globals": {
-    "expect": true
   },
   "plugins": [
     "react"
