@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 import renderer from 'react-test-renderer';
 import PasswordMask from '../src/index';
@@ -22,7 +22,7 @@ describe('<PasswordMask />', () => {
   });
 
   it('updates internal passwordShown state', () => {
-    const component = shallow(
+    const component = mount(
       <PasswordMask
         value={''}
         onChange={() => ({})}
@@ -36,7 +36,7 @@ describe('<PasswordMask />', () => {
   });
 
   it('updates internal hasBeenFocused state', () => {
-    const component = shallow(
+    const component = mount(
       <PasswordMask
         value={''}
         onChange={() => ({})}
@@ -52,7 +52,7 @@ describe('<PasswordMask />', () => {
   it('calls onChange callback', () => {
     const onChange = sinon.spy();
 
-    const component = shallow(
+    const component = mount(
       <PasswordMask
         value={''}
         onChange={onChange}
@@ -68,7 +68,7 @@ describe('<PasswordMask />', () => {
   it('calls onShow callback with value argument', () => {
     const onShow = sinon.spy();
 
-    const component = shallow(
+    const component = mount(
       <PasswordMask
         value={''}
         onShow={onShow}
@@ -85,7 +85,7 @@ describe('<PasswordMask />', () => {
   it('calls onHide callback with value argument', () => {
     const onHide = sinon.spy();
 
-    const component = shallow(
+    const component = mount(
       <PasswordMask
         value={''}
         onHide={onHide}
@@ -103,7 +103,7 @@ describe('<PasswordMask />', () => {
   it('calls onToggle callback with value argument', () => {
     const onToggle = sinon.spy();
 
-    const component = shallow(
+    const component = mount(
       <PasswordMask
         value={''}
         onToggle={onToggle}
@@ -126,8 +126,8 @@ describe('<PasswordMask />', () => {
       />
     );
 
-    const passwordInput = component.ref('password');
-    const textInput = component.ref('text');
+    const passwordInput = component.find('input[type="password"]');
+    const textInput = component.find('input[type="text"]');
     const spy = sinon.spy(textInput.node, 'focus');
     const showHideButton = component.find('a');
 
@@ -145,8 +145,8 @@ describe('<PasswordMask />', () => {
       />
     );
 
-    const passwordInput = component.ref('password');
-    const textInput = component.ref('text');
+    const passwordInput = component.find('input[type="password"]');
+    const textInput = component.find('input[type="text"]');
     const spy = sinon.spy(passwordInput.node, 'focus');
     const showHideButton = component.find('a');
 
@@ -160,7 +160,7 @@ describe('<PasswordMask />', () => {
   it('cancels mouseDown event', () => {
     const preventDefault = sinon.spy();
 
-    const component = shallow(
+    const component = mount(
       <PasswordMask
         value={''}
         onChange={() => ({})}
