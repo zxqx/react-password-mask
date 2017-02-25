@@ -20,7 +20,7 @@
       "js",
       "json"
     ],
-    "collectCoverage": "true",
+    "collectCoverage": true,
     "coverageDirectory": "coverage",
     "coverageReporters": [
       "lcov"
@@ -68,7 +68,7 @@
     "eslint-plugin-react": "^3.16.1",
     "extract-text-webpack-plugin": "^2.0.0-rc.1",
     "html-webpack-plugin": "^2.22.0",
-    "jest": "^18.1.0",
+    "jest": "^19.0.2",
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.3.2",

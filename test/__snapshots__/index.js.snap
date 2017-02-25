@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<PasswordMask /> renders password mask 1`] = `
 <div
-  className="RTdSn">
+  className="RTdSn"
+>
   <input
     className="cSRKwb"
     id="password"
@@ -9,7 +12,8 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     onFocus={[Function]}
     placeholder="Enter password"
     type="password"
-    value="" />
+    value=""
+  />
   <input
     className="iTliiD"
     id=""
@@ -18,12 +22,14 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     onFocus={[Function]}
     placeholder="Enter password"
     type="text"
-    value="" />
+    value=""
+  />
   <a
     className="lQrmH"
     href=""
     onClick={[Function]}
-    onMouseDown={[Function]}>
+    onMouseDown={[Function]}
+  >
     Show
   </a>
 </div>
