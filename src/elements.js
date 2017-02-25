@@ -4,7 +4,7 @@ export const Container = styled.div`
   position: relative;
 `;
 
-export const Input = styled.input`
+const Input = styled.input`
   width: 100%;
   ${props => props.inputStyles}
 `;
