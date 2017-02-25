@@ -7,9 +7,9 @@ export default class Example extends Component {
   }
 
   handleChange(e) {
-    const nextState = {};
-    nextState[e.target.name] = e.target.value;
-    this.setState(nextState);
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
   render() {
