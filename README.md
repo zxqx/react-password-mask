@@ -43,8 +43,8 @@ import PasswordMask from 'react-password-mask';
 | `onShow`      | function  | A callback function to be invoked when the `value` of the field is shown. Receives an argument containing the current value of the field. |
 | `onHide`      | function  | A callback function to be invoked when the `value` of the field is masked. Receives an argument containing the current value of the field. |
 | `onToggle`    | function  | A callback function to be invoked when the `value` of the field is shown or masked. Receives an argument containing the current value of the field. |
-| `inputStyles` | object  | The CSS styles to be applied to the password field.            |
-| `buttonStyles`| object  | The CSS styles to be applied to the show/hide button.          |
+| `inputStyles` | string|object  | The CSS styles to be applied to the password field.            |
+| `buttonStyles`| string|object | The CSS styles to be applied to the show/hide button.          |
 
 ## Development
 

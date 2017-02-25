@@ -12,8 +12,8 @@ export default class PasswordMask extends Component {
     onShow: PropTypes.func,
     onHide: PropTypes.func,
     onToggle: PropTypes.func,
-    inputStyles: PropTypes.object,
-    buttonStyles: PropTypes.object
+    inputStyles: PropTypes.any,
+    buttonStyles: PropTypes.any
   };
 
   state = {
@@ -79,9 +79,9 @@ export default class PasswordMask extends Component {
           name={!passwordShown ? name : ''}
           className={className}
           placeholder={placeholder}
+          onChange={onChange}
           inputStyles={inputStyles}
           passwordShown={passwordShown}
-          onChange={onChange}
           onFocus={() => this.setState({ hasBeenFocused: true })}
         />
 
@@ -93,9 +93,9 @@ export default class PasswordMask extends Component {
           name={passwordShown ? name : ''}
           className={className}
           placeholder={placeholder}
+          onChange={onChange}
           inputStyles={inputStyles}
           passwordShown={passwordShown}
-          onChange={onChange}
           onFocus={() => this.setState({ hasBeenFocused: true })}
         />
 
