@@ -28,8 +28,6 @@ export const Button = styled.a`
   color: #000;
   text-align: center;
   text-decoration: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
   ${props => props.buttonStyles}
 `;
