@@ -25,7 +25,7 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     value=""
   />
   <a
-    className="lQrmH"
+    className="eBwYTe"
     href=""
     onClick={[Function]}
     onMouseDown={[Function]}

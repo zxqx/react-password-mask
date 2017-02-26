@@ -61,8 +61,7 @@ export default class PasswordMask extends Component {
   }
 
   togglePasswordMask() {
-    const { passwordShown } = this.state;
-    this.setState({ passwordShown: !passwordShown });
+    this.setState({ passwordShown: !this.state.passwordShown });
   }
 
   render() {
