@@ -18,12 +18,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /(\.jsx|\.js)$/,
+        test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/
       },
       {
-        test: /(\.jsx|\.js)$/,
+        test: /\.js$/,
         use: 'eslint-loader',
         exclude: /node_modules/
       }

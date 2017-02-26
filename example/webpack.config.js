@@ -29,7 +29,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js/,
+        test: /\.js$/,
         use: 'babel-loader',
         include: [
           path.resolve(__dirname),
