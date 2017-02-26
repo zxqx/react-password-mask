@@ -14,7 +14,7 @@ export default class PasswordMask extends Component {
     onToggle: PropTypes.func,
     inputStyles: PropTypes.any,
     buttonStyles: PropTypes.any
-  };
+  }
 
   state = {
     passwordShown: false,
@@ -39,7 +39,7 @@ export default class PasswordMask extends Component {
 
   focusVisibleInput() {
     const { passwordShown } = this.state;
-    const visibleInput = passwordShown ? this.refs.text : this.refs.password;
+    const visibleInput = passwordShown ? this.textInput : this.passwordInput;
 
     visibleInput.focus();
   }
@@ -72,7 +72,7 @@ export default class PasswordMask extends Component {
       <div style={{ position: 'relative' }}>
         <input
           type="password"
-          ref="password"
+          ref={input => this.passwordInput = input}
           value={value}
           id={!passwordShown ? id : ''}
           name={!passwordShown ? name : ''}
@@ -89,7 +89,7 @@ export default class PasswordMask extends Component {
 
         <input
           type="text"
-          ref="text"
+          ref={input => this.textInput = input}
           value={value}
           id={passwordShown ? id : ''}
           name={passwordShown ? name : ''}
