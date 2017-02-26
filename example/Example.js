@@ -23,13 +23,13 @@ export default class Example extends Component {
           name="password"
           placeholder="Enter password"
           onChange={this.handleChange.bind(this)}
-          inputStyles={`
-            padding: 8px;
-            font-size: 16px;
-          `}
-          buttonStyles={`
-            width: 61px;
-          `}
+          inputStyles={{
+            padding: '8px',
+            fontSize: '16px'
+          }}
+          buttonStyles={{
+            width: '61px'
+          }}
         />
       </div>
     );

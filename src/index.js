@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Container, PasswordInput, TextInput, Button } from './elements.js';
+import { inputStyles, buttonStyles } from './styles.js';
 
 export default class PasswordMask extends Component {
   static propTypes = {
@@ -39,7 +39,7 @@ export default class PasswordMask extends Component {
 
   focusVisibleInput() {
     const { passwordShown } = this.state;
-    const visibleInput = passwordShown ? this.textInput : this.passwordInput;
+    const visibleInput = passwordShown ? this.refs.text : this.refs.password;
 
     visibleInput.focus();
   }
@@ -65,42 +65,51 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, placeholder, onChange, inputStyles, buttonStyles } = this.props;
+    const { value, id, name, className, placeholder, onChange } = this.props;
     const { passwordShown } = this.state;
 
     return (
-      <Container>
-        <PasswordInput
+      <div style={{ position: 'relative' }}>
+        <input
           type="password"
-          innerRef={input => this.passwordInput = input}
+          ref="password"
           value={value}
           id={!passwordShown ? id : ''}
           name={!passwordShown ? name : ''}
           className={className}
           placeholder={placeholder}
+          style={{
+            ...inputStyles,
+            ...this.props.inputStyles,
+            display: !passwordShown ? 'block' : 'none'
+          }}
           onChange={onChange}
-          inputStyles={inputStyles}
-          passwordShown={passwordShown}
           onFocus={() => this.setState({ hasBeenFocused: true })}
         />
 
-        <TextInput
+        <input
           type="text"
-          innerRef={input => this.textInput = input}
+          ref="text"
           value={value}
           id={passwordShown ? id : ''}
           name={passwordShown ? name : ''}
           className={className}
           placeholder={placeholder}
+          style={{
+            ...inputStyles,
+            ...this.props.inputStyles,
+            display: passwordShown ? 'block' : 'none'
+          }}
           onChange={onChange}
-          inputStyles={inputStyles}
-          passwordShown={passwordShown}
           onFocus={() => this.setState({ hasBeenFocused: true })}
         />
 
-        <Button
+        <a
           href=""
-          buttonStyles={buttonStyles}
+          style={{
+            ...buttonStyles,
+            ...this.props.buttonStyles
+          }}
           onMouseDown={e => e.preventDefault()}
           onClick={e => {
             e.preventDefault();
@@ -108,8 +117,8 @@ export default class PasswordMask extends Component {
           }}
         >
           {passwordShown ? 'Hide' : 'Show'}
-        </Button>
-      </Container>
+        </a>
+      </div>
     );
   }
 }
