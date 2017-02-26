@@ -37,11 +37,11 @@ export default class PasswordMask extends Component {
     }
   }
 
-  focusVisibleField() {
+  focusVisibleInput() {
     const { passwordShown } = this.state;
-    const visibleField = passwordShown ? this.textInput : this.passwordInput;
+    const visibleInput = passwordShown ? this.textInput : this.passwordInput;
 
-    visibleField.focus();
+    visibleInput.focus();
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -56,7 +56,7 @@ export default class PasswordMask extends Component {
     const { passwordShown, hasBeenFocused } = this.state;
 
     if (hasBeenFocused && prevState.passwordShown !== passwordShown) {
-      this.focusVisibleField();
+      this.focusVisibleInput();
     }
   }
 
