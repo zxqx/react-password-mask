@@ -14,6 +14,8 @@ describe('<PasswordMask />', () => {
         placeholder="Enter password"
         inputStyles={{ borderColor: 'aqua' }}
         buttonStyles={{ background: 'cornsilk' }}
+        showButtonContent="Hide it"
+        hideButtonContent="Show it"
         onChange={() => ({})}
       />
     ).toJSON();

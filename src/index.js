@@ -14,7 +14,15 @@ export default class PasswordMask extends Component {
     onHide: PropTypes.func,
     onToggle: PropTypes.func,
     inputStyles: PropTypes.any,
-    buttonStyles: PropTypes.any
+    buttonStyles: PropTypes.any,
+    showButtonContent: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.string
+    ]),
+    hideButtonContent: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.string
+    ])
   }
 
   state = {
@@ -66,7 +74,7 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, placeholder, onChange } = this.props;
+    const { value, id, name, className, placeholder, onChange, showButtonContent, hideButtonContent } = this.props;
     const { passwordShown } = this.state;
 
     return (
@@ -117,7 +125,10 @@ export default class PasswordMask extends Component {
             this.togglePasswordMask();
           }}
         >
-          {passwordShown ? 'Hide' : 'Show'}
+          {passwordShown ?
+            hideButtonContent || 'Hide' :
+            showButtonContent || 'Show'
+          }
         </a>
       </div>
     );
