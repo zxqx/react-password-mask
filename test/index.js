@@ -34,7 +34,7 @@ describe('<PasswordMask />', () => {
     const showHideButton = component.find('a');
     showHideButton.simulate('click', { preventDefault: () => ({}) });
 
-    expect(component.instance().state.passwordShown).toEqual(true);
+    expect(component.state().passwordShown).toEqual(true);
   });
 
   it('updates internal hasBeenFocused state', () => {
@@ -48,7 +48,7 @@ describe('<PasswordMask />', () => {
     const input = component.find('input[type="password"]');
     input.simulate('focus');
 
-    expect(component.instance().state.hasBeenFocused).toEqual(true);
+    expect(component.state().hasBeenFocused).toEqual(true);
   });
 
   it('calls onChange callback', () => {
