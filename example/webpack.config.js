@@ -1,8 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const portfinder = require('portfinder');
 
-module.exports = {
+const config = port => ({
   devtool: 'cheap-module-source-map',
   entry: {
     app: path.join(__dirname, './index.js')
@@ -12,6 +13,7 @@ module.exports = {
     filename: 'example.[hash].js'
   },
   devServer: {
+    port,
     hot: true,
     stats: {
       colors: true,
@@ -46,4 +48,6 @@ module.exports = {
       },
     ]
   }
-};
+});
+
+module.exports = portfinder.getPortPromise().then(port => config(port));

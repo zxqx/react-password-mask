@@ -56,7 +56,7 @@ Install dependencies:
 $ npm install
 ```
 
-Run the example app at [http://localhost:8080](http://localhost:8080):
+Boot up the example app:
 
 ```
 $ npm run example
