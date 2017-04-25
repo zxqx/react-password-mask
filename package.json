@@ -5,9 +5,8 @@
   "main": "lib/passwordMask.min.js",
   "scripts": {
     "build": "webpack",
-    "test": "jest",
-    "test:update": "jest -u",
-    "test:watch": "npm test -- --watchAll",
+    "test": "npm run test:once -- --watchAll",
+    "test:once": "jest",
     "coverage": "cat ./coverage/lcov.info | coveralls",
     "lint": "eslint src test",
     "preversion": "npm run build && git add -A lib",
