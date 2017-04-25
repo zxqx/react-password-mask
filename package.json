@@ -10,7 +10,7 @@
     "coverage": "cat ./coverage/lcov.info | coveralls",
     "lint": "eslint src test",
     "preversion": "npm run build && git add -A lib",
-    "example": "webpack-dev-server --config example/webpack.config.js",
+    "example": "webpack-dev-server --config example/webpack.config.js --open",
     "example:build": "cross-env NODE_ENV=production webpack --config example/webpack.config.build.js"
   },
   "jest": {
