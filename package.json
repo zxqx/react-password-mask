@@ -48,7 +48,8 @@
   },
   "homepage": "https://github.com/zakangelle/react-password-mask#readme",
   "peerDependencies": {
-    "react": "^0.14.6 || 15.x.x"
+    "react": "^0.14.6 || 15.x.x",
+    "prop-types": "^15.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -70,6 +71,7 @@
     "html-webpack-plugin": "^2.22.0",
     "jest": "^19.0.2",
     "react": "^15.3.2",
+    "prop-types": "^15.3.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.3.2",
     "react-test-renderer": "^15.4.2",
