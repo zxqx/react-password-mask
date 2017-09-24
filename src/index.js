@@ -3,11 +3,6 @@ import PropTypes from 'prop-types';
 import { inputStyles, buttonStyles } from './styles.js';
 
 export default class PasswordMask extends Component {
-  static defaultProps = {
-    buttonProps: {
-      tabIndex: -1
-    }
-  }
   static propTypes = {
     value: PropTypes.any.isRequired,
     id: PropTypes.string,
@@ -20,7 +15,6 @@ export default class PasswordMask extends Component {
     onToggle: PropTypes.func,
     inputStyles: PropTypes.any,
     buttonStyles: PropTypes.any,
-    buttonProps: PropTypes.any,
     showButtonContent: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.string
@@ -80,7 +74,7 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, placeholder, onChange, showButtonContent, hideButtonContent, buttonProps } = this.props;
+    const { value, id, name, className, placeholder, onChange, showButtonContent, hideButtonContent } = this.props;
     const { passwordShown } = this.state;
 
     return (
@@ -130,7 +124,7 @@ export default class PasswordMask extends Component {
             e.preventDefault();
             this.togglePasswordMask();
           }}
-          {...buttonProps}
+          tabIndex={-1}
         >
           {passwordShown ?
             hideButtonContent || 'Hide' :
