@@ -63,6 +63,7 @@ exports[`<PasswordMask /> renders password mask 1`] = `
         "userSelect": "none",
       }
     }
+    tabIndex={-1}
   >
     Hide it
   </a>
