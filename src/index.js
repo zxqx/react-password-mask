@@ -124,6 +124,7 @@ export default class PasswordMask extends Component {
             e.preventDefault();
             this.togglePasswordMask();
           }}
+          tabIndex={-1}
         >
           {passwordShown ?
             hideButtonContent || 'Hide' :
