@@ -8,8 +8,10 @@ export default class PasswordMask extends Component {
     id: PropTypes.string,
     name: PropTypes.string,
     className: PropTypes.string,
+    iconClassName: PropTypes.string,
     placeholder: PropTypes.string,
     onChange: PropTypes.func,
+    onKeyDown: PropTypes.func,
     onShow: PropTypes.func,
     onHide: PropTypes.func,
     onToggle: PropTypes.func,
@@ -74,7 +76,7 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, placeholder, onChange, showButtonContent, hideButtonContent } = this.props;
+    const { value, id, name, className, iconClassName, placeholder, onChange, onKeyDown, showButtonContent, hideButtonContent } = this.props;
     const { passwordShown } = this.state;
 
     return (
@@ -93,6 +95,7 @@ export default class PasswordMask extends Component {
             display: !passwordShown ? 'block' : 'none'
           }}
           onChange={onChange}
+          onKeyDown={onKeyDown}
           onFocus={() => this.setState({ hasBeenFocused: true })}
         />
 
@@ -110,11 +113,13 @@ export default class PasswordMask extends Component {
             display: passwordShown ? 'block' : 'none'
           }}
           onChange={onChange}
+          onKeyDown={onKeyDown}
           onFocus={() => this.setState({ hasBeenFocused: true })}
         />
 
         <a
           href=""
+          className={iconClassName}
           style={{
             ...buttonStyles,
             ...this.props.buttonStyles
