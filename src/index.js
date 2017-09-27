@@ -8,6 +8,7 @@ export default class PasswordMask extends Component {
     id: PropTypes.string,
     name: PropTypes.string,
     className: PropTypes.string,
+    inputClassName: PropTypes.string,
     iconClassName: PropTypes.string,
     placeholder: PropTypes.string,
     onChange: PropTypes.func,
@@ -76,18 +77,18 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, iconClassName, placeholder, onChange, onKeyDown, showButtonContent, hideButtonContent } = this.props;
+    const { value, id, name, className, inputClassName, iconClassName, placeholder, onChange, onKeyDown, showButtonContent, hideButtonContent } = this.props;
     const { passwordShown } = this.state;
 
     return (
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative' }} className={className}>
         <input
           type="password"
           ref={input => this.passwordInput = input}
           value={value}
           id={!passwordShown ? id : ''}
           name={!passwordShown ? name : ''}
-          className={className}
+          className={inputClassName}
           placeholder={placeholder}
           style={{
             ...inputStyles,
