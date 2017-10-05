@@ -17,6 +17,7 @@ describe('<PasswordMask />', () => {
         showButtonContent="Hide it"
         hideButtonContent="Show it"
         onChange={() => ({})}
+        onKeyDown={() => ({})}
       />
     ).toJSON();
 
@@ -65,6 +66,22 @@ describe('<PasswordMask />', () => {
     input.simulate('change');
 
     expect(onChange.calledOnce).toEqual(true);
+  });
+
+  it('calls onKeyDown callback', () => {
+    const onKeyDown = sinon.spy();
+
+    const component = mount(
+      <PasswordMask
+        value={''}
+        onKeyDown={onKeyDown}
+      />
+    );
+
+    const input = component.find('input[type="password"]');
+    input.simulate('keyDown');
+
+    expect(onKeyDown.calledOnce).toEqual(true);
   });
 
   it('calls onShow callback with value argument', () => {

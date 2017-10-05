@@ -9,7 +9,7 @@ export default class PasswordMask extends Component {
     name: PropTypes.string,
     className: PropTypes.string,
     inputClassName: PropTypes.string,
-    iconClassName: PropTypes.string,
+    buttonClassName: PropTypes.string,
     placeholder: PropTypes.string,
     onChange: PropTypes.func,
     onKeyDown: PropTypes.func,
@@ -26,6 +26,12 @@ export default class PasswordMask extends Component {
       PropTypes.element,
       PropTypes.string
     ])
+  }
+
+  static defaultProps = {
+    inputClassName: '',
+    buttonClassName: '',
+    placeholder: ''
   }
 
   state = {
@@ -77,7 +83,7 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, inputClassName, iconClassName, placeholder, onChange, onKeyDown, showButtonContent, hideButtonContent } = this.props;
+    const { value, id, name, className, inputClassName, buttonClassName, placeholder, onChange, onKeyDown, showButtonContent, hideButtonContent } = this.props;
     const { passwordShown } = this.state;
 
     return (
@@ -120,7 +126,7 @@ export default class PasswordMask extends Component {
 
         <a
           href=""
-          className={iconClassName}
+          className={buttonClassName}
           style={{
             ...buttonStyles,
             ...this.props.buttonStyles

@@ -28,6 +28,7 @@ import PasswordMask from 'react-password-mask';
   placeholder="Enter password"
   value={this.state.password}
   onChange={this.handleChange.bind(this)}
+  onKeyDown={this.handleKeyDown.bind(this)}
 />
 ```
 
@@ -39,8 +40,11 @@ import PasswordMask from 'react-password-mask';
 | `id`          | string    | The HTML `id` attribute used for the password field.          |
 | `name`        | string    | The HTML `name` attribute used for the password field.        |
 | `className`   | string    | A space-separated list of HTML `class` attributes.            |
+| `inputClassName`   | string    | A space-separated list of HTML `class` attributes, applied to the input.            |
+| `buttonClassName`   | string    | A space-separated list of HTML `class` attributes, applied to the `<a>` tag containing the toggle-button.            |
 | `placeholder` | string    | The HTML `placeholder` attribute used for the password field. |
 | `onChange`    | function  | A callback function to be invoked when the `value` of the field changes. Receives an argument containing the React `SyntheticEvent` object. |
+| `onKeyDown`   | function  | A callback function to be invoked when a key is pressed inside the input field. Receives an argument containing the React `SyntheticEvent` object. |
 | `onShow`      | function  | A callback function to be invoked when the `value` of the field is shown. Receives an argument containing the current value of the field. |
 | `onHide`      | function  | A callback function to be invoked when the `value` of the field is masked. Receives an argument containing the current value of the field. |
 | `onToggle`    | function  | A callback function to be invoked when the `value` of the field is shown or masked. Receives an argument containing the current value of the field. |

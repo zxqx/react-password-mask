@@ -2,6 +2,7 @@
 
 exports[`<PasswordMask /> renders password mask 1`] = `
 <div
+  className={undefined}
   style={
     Object {
       "position": "relative",
@@ -9,11 +10,12 @@ exports[`<PasswordMask /> renders password mask 1`] = `
   }
 >
   <input
-    className={undefined}
+    className=""
     id="password"
     name="password"
     onChange={[Function]}
     onFocus={[Function]}
+    onKeyDown={[Function]}
     placeholder="Enter password"
     style={
       Object {
@@ -31,6 +33,7 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     name=""
     onChange={[Function]}
     onFocus={[Function]}
+    onKeyDown={[Function]}
     placeholder="Enter password"
     style={
       Object {
@@ -43,6 +46,7 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     value=""
   />
   <a
+    className=""
     href=""
     onClick={[Function]}
     onMouseDown={[Function]}
