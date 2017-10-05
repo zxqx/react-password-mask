@@ -50,6 +50,7 @@ import PasswordMask from 'react-password-mask';
 | `onToggle`    | function  | A callback function to be invoked when the `value` of the field is shown or masked. Receives an argument containing the current value of the field. |
 | `inputStyles` | object | Inline CSS styles to be applied to the password field.            |
 | `buttonStyles`| object | Inline CSS styles to be applied to the show/hide button.          |
+| `useVendorStyles`| boolean | Whether the vendor styles of this package should be applied at all. Default: `true`          |
 | `showButtonContent` | element, string | The HTML content of the show button. |
 | `hideButtonContent` | element, string | The HTML content of the hide button. |
 

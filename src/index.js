@@ -16,6 +16,7 @@ export default class PasswordMask extends Component {
     onShow: PropTypes.func,
     onHide: PropTypes.func,
     onToggle: PropTypes.func,
+    useVendorStyles: PropTypes.bool,
     inputStyles: PropTypes.any,
     buttonStyles: PropTypes.any,
     showButtonContent: PropTypes.oneOfType([
@@ -31,7 +32,8 @@ export default class PasswordMask extends Component {
   static defaultProps = {
     inputClassName: '',
     buttonClassName: '',
-    placeholder: ''
+    placeholder: '',
+    useVendorStyles: true
   }
 
   state = {
@@ -83,8 +85,11 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, inputClassName, buttonClassName, placeholder, onChange, onKeyDown, showButtonContent, hideButtonContent } = this.props;
+    const { value, id, name, className, inputClassName, buttonClassName, placeholder, onChange, onKeyDown, showButtonContent, hideButtonContent, useVendorStyles } = this.props;
     const { passwordShown } = this.state;
+
+    const vendorInputCss = useVendorStyles ? inputStyles : {};
+    const vendorButtonCss = useVendorStyles ? buttonStyles : {};
 
     return (
       <div style={{ position: 'relative' }} className={className}>
@@ -97,7 +102,7 @@ export default class PasswordMask extends Component {
           className={inputClassName}
           placeholder={placeholder}
           style={{
-            ...inputStyles,
+            ...vendorInputCss,
             ...this.props.inputStyles,
             display: !passwordShown ? 'block' : 'none'
           }}
@@ -115,7 +120,7 @@ export default class PasswordMask extends Component {
           className={className}
           placeholder={placeholder}
           style={{
-            ...inputStyles,
+            ...vendorInputCss,
             ...this.props.inputStyles,
             display: passwordShown ? 'block' : 'none'
           }}
@@ -128,7 +133,7 @@ export default class PasswordMask extends Component {
           href=""
           className={buttonClassName}
           style={{
-            ...buttonStyles,
+            ...vendorButtonCss,
             ...this.props.buttonStyles
           }}
           onMouseDown={e => e.preventDefault()}
