@@ -32,6 +32,20 @@ import PasswordMask from 'react-password-mask';
 />
 ```
 
+### Unstyled Example
+
+Completely disables any CSS from this package, you have to style the component on your own using `inputStyles`/`buttonStyles` or `inputClassName`/`buttonClassName`.
+
+```js
+<PasswordMask
+  id="password"
+  name="password"
+  value={this.state.password}
+  onChange={this.handleChange.bind(this)}
+  useVendorStyles={false}
+/>
+```
+
 ## Options
 
 | Option        | Type      | Description                                                   |
