@@ -33,7 +33,9 @@ export default class PasswordMask extends Component {
     inputClassName: '',
     buttonClassName: '',
     placeholder: '',
-    useVendorStyles: true
+    useVendorStyles: true,
+    onChange() {},
+    onKeyDown() {}
   }
 
   state = {

@@ -73,3 +73,57 @@ exports[`<PasswordMask /> renders password mask 1`] = `
   </a>
 </div>
 `;
+
+exports[`<PasswordMask /> renders password mask without any styles 1`] = `
+<div
+  className={undefined}
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <input
+    className=""
+    id="password"
+    name="password"
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    placeholder=""
+    style={
+      Object {
+        "display": "block",
+      }
+    }
+    type="password"
+    value=""
+  />
+  <input
+    className={undefined}
+    id=""
+    name=""
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    placeholder=""
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    type="text"
+    value=""
+  />
+  <a
+    className=""
+    href=""
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    style={Object {}}
+    tabIndex={-1}
+  >
+    Show
+  </a>
+</div>
+`;

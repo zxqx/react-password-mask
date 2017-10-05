@@ -24,6 +24,19 @@ describe('<PasswordMask />', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('renders password mask without any styles', () => {
+    const tree = renderer.create(
+      <PasswordMask
+        value={''}
+        id="password"
+        name="password"
+        useVendorStyles={false}
+      />
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('updates internal passwordShown state', () => {
     const component = mount(
       <PasswordMask
