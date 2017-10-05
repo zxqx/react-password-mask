@@ -28,13 +28,12 @@ import PasswordMask from 'react-password-mask';
   placeholder="Enter password"
   value={this.state.password}
   onChange={this.handleChange.bind(this)}
-  onKeyDown={this.handleKeyDown.bind(this)}
 />
 ```
 
 ### Unstyled Example
 
-Completely disables any CSS from this package, you have to style the component on your own using `inputStyles`/`buttonStyles` or `inputClassName`/`buttonClassName`.
+Use `useVendorStyles={false}` to disable the default CSS styles from the package. You can then style the component from scratch using `inputStyles`/`buttonStyles` or `inputClassName`/`buttonClassName`.
 
 ```js
 <PasswordMask
@@ -53,9 +52,9 @@ Completely disables any CSS from this package, you have to style the component o
 | `value`       | any       | The value of the password field.                              |
 | `id`          | string    | The HTML `id` attribute used for the password field.          |
 | `name`        | string    | The HTML `name` attribute used for the password field.        |
-| `className`   | string    | A space-separated list of HTML `class` attributes.            |
-| `inputClassName`   | string    | A space-separated list of HTML `class` attributes, applied to the input.            |
-| `buttonClassName`   | string    | A space-separated list of HTML `class` attributes, applied to the `<a>` tag containing the toggle-button.            |
+| `className`   | string    | A space-separated list of HTML `class` attributes applied to the container.            |
+| `inputClassName`   | string    | A space-separated list of HTML `class` attributes, applied to the password field.            |
+| `buttonClassName`   | string    | A space-separated list of HTML `class` attributes, applied to the show/hide button.            |
 | `placeholder` | string    | The HTML `placeholder` attribute used for the password field. |
 | `onChange`    | function  | A callback function to be invoked when the `value` of the field changes. Receives an argument containing the React `SyntheticEvent` object. |
 | `onKeyDown`   | function  | A callback function to be invoked when a key is pressed inside the input field. Receives an argument containing the React `SyntheticEvent` object. |
