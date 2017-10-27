@@ -1,3 +1,7 @@
+export const containerStyles = {
+  position: 'relative'
+};
+
 export const inputStyles = {
   width: '100%'
 };

@@ -80,11 +80,7 @@ exports[`<PasswordMask /> renders password mask 1`] = `
 exports[`<PasswordMask /> renders password mask without any styles 1`] = `
 <div
   className={undefined}
-  style={
-    Object {
-      "position": "relative",
-    }
-  }
+  style={Object {}}
 >
   <input
     autoFocus={undefined}

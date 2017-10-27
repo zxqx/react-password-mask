@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { inputStyles, buttonStyles } from './styles.js';
+import { containerStyles, inputStyles, buttonStyles } from './styles.js';
 
 export default class PasswordMask extends Component {
   static propTypes = {
@@ -92,13 +92,14 @@ export default class PasswordMask extends Component {
     const { value, id, name, className, inputClassName, buttonClassName, placeholder, autoFocus, maxLength, onChange, onKeyDown, showButtonContent, hideButtonContent, useVendorStyles } = this.props;
     const { passwordShown } = this.state;
 
+    const vendorContainerCss = useVendorStyles ? containerStyles : {};
     const vendorInputCss = useVendorStyles ? inputStyles : {};
     const vendorButtonCss = useVendorStyles ? buttonStyles : {};
 
     return (
       <div
         className={className}
-        style={{ position: 'relative' }}
+        style={vendorContainerCss}
       >
         <input
           type="password"
