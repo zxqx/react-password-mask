@@ -56,6 +56,8 @@ Use `useVendorStyles={false}` to disable the default CSS styles from the package
 | `inputClassName`   | string    | A space-separated list of HTML `class` attributes, applied to the password field.            |
 | `buttonClassName`   | string    | A space-separated list of HTML `class` attributes, applied to the show/hide button.            |
 | `placeholder` | string    | The HTML `placeholder` attribute used for the password field. |
+| `autoFocus` | boolean    | The HTML `autofocus` attribute used for the password field. |
+| `maxLength` | boolean    | The HTML `maxlength` attribute used for the password field. |
 | `onChange`    | function  | A callback function to be invoked when the `value` of the field changes. Receives an argument containing the React `SyntheticEvent` object. |
 | `onKeyDown`   | function  | A callback function to be invoked when a key is pressed inside the input field. Receives an argument containing the React `SyntheticEvent` object. |
 | `onShow`      | function  | A callback function to be invoked when the `value` of the field is shown. Receives an argument containing the current value of the field. |

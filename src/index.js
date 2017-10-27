@@ -11,6 +11,8 @@ export default class PasswordMask extends Component {
     inputClassName: PropTypes.string,
     buttonClassName: PropTypes.string,
     placeholder: PropTypes.string,
+    autoFocus: PropTypes.bool,
+    maxLength: PropTypes.number,
     onChange: PropTypes.func,
     onKeyDown: PropTypes.func,
     onShow: PropTypes.func,
@@ -87,14 +89,17 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, inputClassName, buttonClassName, placeholder, onChange, onKeyDown, showButtonContent, hideButtonContent, useVendorStyles } = this.props;
+    const { value, id, name, className, inputClassName, buttonClassName, placeholder, autoFocus, maxLength, onChange, onKeyDown, showButtonContent, hideButtonContent, useVendorStyles } = this.props;
     const { passwordShown } = this.state;
 
     const vendorInputCss = useVendorStyles ? inputStyles : {};
     const vendorButtonCss = useVendorStyles ? buttonStyles : {};
 
     return (
-      <div style={{ position: 'relative' }} className={className}>
+      <div
+        className={className}
+        style={{ position: 'relative' }}
+      >
         <input
           type="password"
           ref={input => this.passwordInput = input}
@@ -103,6 +108,8 @@ export default class PasswordMask extends Component {
           name={!passwordShown ? name : ''}
           className={inputClassName}
           placeholder={placeholder}
+          autoFocus={autoFocus}
+          maxLength={maxLength}
           style={{
             ...vendorInputCss,
             ...this.props.inputStyles,
@@ -121,6 +128,7 @@ export default class PasswordMask extends Component {
           name={passwordShown ? name : ''}
           className={className}
           placeholder={placeholder}
+          maxLength={maxLength}
           style={{
             ...vendorInputCss,
             ...this.props.inputStyles,

@@ -12,6 +12,8 @@ describe('<PasswordMask />', () => {
         id="password"
         name="password"
         placeholder="Enter password"
+        autoFocus
+        maxLength={16}
         inputStyles={{ borderColor: 'aqua' }}
         buttonStyles={{ background: 'cornsilk' }}
         showButtonContent="Hide it"

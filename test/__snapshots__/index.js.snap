@@ -10,8 +10,10 @@ exports[`<PasswordMask /> renders password mask 1`] = `
   }
 >
   <input
+    autoFocus={true}
     className=""
     id="password"
+    maxLength={16}
     name="password"
     onChange={[Function]}
     onFocus={[Function]}
@@ -30,6 +32,7 @@ exports[`<PasswordMask /> renders password mask 1`] = `
   <input
     className={undefined}
     id=""
+    maxLength={16}
     name=""
     onChange={[Function]}
     onFocus={[Function]}
@@ -84,8 +87,10 @@ exports[`<PasswordMask /> renders password mask without any styles 1`] = `
   }
 >
   <input
+    autoFocus={undefined}
     className=""
     id="password"
+    maxLength={undefined}
     name="password"
     onChange={[Function]}
     onFocus={[Function]}
@@ -102,6 +107,7 @@ exports[`<PasswordMask /> renders password mask without any styles 1`] = `
   <input
     className={undefined}
     id=""
+    maxLength={undefined}
     name=""
     onChange={[Function]}
     onFocus={[Function]}
