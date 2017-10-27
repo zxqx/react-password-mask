@@ -30,8 +30,6 @@ export default class Example extends Component {
           buttonStyles={{
             width: '61px'
           }}
-          autoFocus
-          maxLength={8}
         />
       </div>
     );
