@@ -127,7 +127,7 @@ export default class PasswordMask extends Component {
           value={value}
           id={passwordShown ? id : ''}
           name={passwordShown ? name : ''}
-          className={className}
+          className={inputClassName}
           placeholder={placeholder}
           maxLength={maxLength}
           style={{
