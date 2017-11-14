@@ -30,7 +30,7 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     value=""
   />
   <input
-    className={undefined}
+    className=""
     id=""
     maxLength={16}
     name=""
@@ -101,7 +101,7 @@ exports[`<PasswordMask /> renders password mask without any styles 1`] = `
     value=""
   />
   <input
-    className={undefined}
+    className=""
     id=""
     maxLength={undefined}
     name=""

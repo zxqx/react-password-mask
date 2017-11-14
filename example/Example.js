@@ -27,6 +27,7 @@ export default class Example extends Component {
             padding: '8px',
             fontSize: '16px'
           }}
+          inputClassName="PasswordMaskInput"
           buttonStyles={{
             width: '61px'
           }}
