@@ -19,6 +19,7 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     onFocus={[Function]}
     onKeyDown={[Function]}
     placeholder="Enter password"
+    readOnly={undefined}
     style={
       Object {
         "borderColor": "aqua",
@@ -38,6 +39,7 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     onFocus={[Function]}
     onKeyDown={[Function]}
     placeholder="Enter password"
+    readOnly={undefined}
     style={
       Object {
         "borderColor": "aqua",
@@ -92,6 +94,7 @@ exports[`<PasswordMask /> renders password mask without any styles 1`] = `
     onFocus={[Function]}
     onKeyDown={[Function]}
     placeholder=""
+    readOnly={undefined}
     style={
       Object {
         "display": "block",
@@ -109,6 +112,7 @@ exports[`<PasswordMask /> renders password mask without any styles 1`] = `
     onFocus={[Function]}
     onKeyDown={[Function]}
     placeholder=""
+    readOnly={undefined}
     style={
       Object {
         "display": "none",

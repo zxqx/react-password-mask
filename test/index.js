@@ -206,4 +206,18 @@ describe('<PasswordMask />', () => {
 
     expect(preventDefault.calledOnce).toEqual(true);
   });
+
+  it('can be readonly', () => {
+    const component = mount(
+      <PasswordMask
+        value={''}
+        readOnly
+      />
+    );
+
+    const inputs = component.find('input');
+    inputs.forEach((node) => {
+      expect(node.props().readOnly).toEqual(true);
+    });
+  });
 });
