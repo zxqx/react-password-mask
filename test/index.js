@@ -83,6 +83,22 @@ describe('<PasswordMask />', () => {
     expect(onChange.calledOnce).toEqual(true);
   });
 
+  it('calls onBlur callback', () => {
+    const onBlur = sinon.spy();
+
+    const component = mount(
+      <PasswordMask
+        value={''}
+        onBlur={onBlur}
+      />
+    );
+
+    const input = component.find('input[type="password"]');
+    input.simulate('blur');
+
+    expect(onBlur.calledOnce).toEqual(true);
+  });
+
   it('calls onKeyDown callback', () => {
     const onKeyDown = sinon.spy();
 

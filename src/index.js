@@ -14,6 +14,7 @@ export default class PasswordMask extends Component {
     autoFocus: PropTypes.bool,
     maxLength: PropTypes.number,
     onChange: PropTypes.func,
+    onBlur: PropTypes.func,
     onKeyDown: PropTypes.func,
     onShow: PropTypes.func,
     onHide: PropTypes.func,
@@ -38,6 +39,7 @@ export default class PasswordMask extends Component {
     placeholder: '',
     useVendorStyles: true,
     onChange() {},
+    onBlur() {},
     onKeyDown() {}
   }
 
@@ -90,7 +92,7 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, inputClassName, buttonClassName, placeholder, autoFocus, maxLength, onChange, onKeyDown, showButtonContent, hideButtonContent, useVendorStyles, readOnly } = this.props;
+    const { value, id, name, className, inputClassName, buttonClassName, placeholder, autoFocus, maxLength, onChange, onBlur, onKeyDown, showButtonContent, hideButtonContent, useVendorStyles, readOnly } = this.props;
     const { passwordShown } = this.state;
 
     const vendorContainerCss = useVendorStyles ? containerStyles : {};
@@ -119,6 +121,7 @@ export default class PasswordMask extends Component {
             display: !passwordShown ? 'block' : 'none'
           }}
           onChange={onChange}
+          onBlur={onBlur}
           onKeyDown={onKeyDown}
           onFocus={() => this.setState({ hasBeenFocused: true })}
         />
@@ -139,6 +142,7 @@ export default class PasswordMask extends Component {
             display: passwordShown ? 'block' : 'none'
           }}
           onChange={onChange}
+          onBlur={onBlur}
           onKeyDown={onKeyDown}
           onFocus={() => this.setState({ hasBeenFocused: true })}
         />
