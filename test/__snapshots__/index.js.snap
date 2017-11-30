@@ -15,10 +15,12 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     id="password"
     maxLength={16}
     name="password"
+    onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     placeholder="Enter password"
+    readOnly={undefined}
     style={
       Object {
         "borderColor": "aqua",
@@ -34,10 +36,12 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     id=""
     maxLength={16}
     name=""
+    onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     placeholder="Enter password"
+    readOnly={undefined}
     style={
       Object {
         "borderColor": "aqua",
@@ -88,10 +92,12 @@ exports[`<PasswordMask /> renders password mask without any styles 1`] = `
     id="password"
     maxLength={undefined}
     name="password"
+    onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     placeholder=""
+    readOnly={undefined}
     style={
       Object {
         "display": "block",
@@ -105,10 +111,12 @@ exports[`<PasswordMask /> renders password mask without any styles 1`] = `
     id=""
     maxLength={undefined}
     name=""
+    onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     placeholder=""
+    readOnly={undefined}
     style={
       Object {
         "display": "none",

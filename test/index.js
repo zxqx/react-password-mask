@@ -83,6 +83,22 @@ describe('<PasswordMask />', () => {
     expect(onChange.calledOnce).toEqual(true);
   });
 
+  it('calls onBlur callback', () => {
+    const onBlur = sinon.spy();
+
+    const component = mount(
+      <PasswordMask
+        value={''}
+        onBlur={onBlur}
+      />
+    );
+
+    const input = component.find('input[type="password"]');
+    input.simulate('blur');
+
+    expect(onBlur.calledOnce).toEqual(true);
+  });
+
   it('calls onKeyDown callback', () => {
     const onKeyDown = sinon.spy();
 
@@ -205,5 +221,19 @@ describe('<PasswordMask />', () => {
     showHideButton.simulate('mouseDown', { preventDefault });
 
     expect(preventDefault.calledOnce).toEqual(true);
+  });
+
+  it('can be readonly', () => {
+    const component = mount(
+      <PasswordMask
+        value={''}
+        readOnly
+      />
+    );
+
+    const inputs = component.find('input');
+    inputs.forEach((node) => {
+      expect(node.props().readOnly).toEqual(true);
+    });
   });
 });
