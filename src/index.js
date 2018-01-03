@@ -21,6 +21,8 @@ export default class PasswordMask extends Component {
     onToggle: PropTypes.func,
     useVendorStyles: PropTypes.bool,
     readOnly: PropTypes.bool,
+    required: PropTypes.string,
+    disabled: PropTypes.bool,
     inputStyles: PropTypes.any,
     buttonStyles: PropTypes.any,
     showButtonContent: PropTypes.oneOfType([
@@ -92,7 +94,7 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, inputClassName, buttonClassName, placeholder, autoFocus, maxLength, onChange, onBlur, onKeyDown, showButtonContent, hideButtonContent, useVendorStyles, readOnly } = this.props;
+    const { value, id, name, className, inputClassName, buttonClassName, placeholder, autoFocus, maxLength, onChange, onBlur, onKeyDown, showButtonContent, hideButtonContent, useVendorStyles, readOnly, disabled, required } = this.props;
     const { passwordShown } = this.state;
 
     const vendorContainerCss = useVendorStyles ? containerStyles : {};
@@ -115,6 +117,8 @@ export default class PasswordMask extends Component {
           autoFocus={autoFocus}
           maxLength={maxLength}
           readOnly={readOnly}
+          disabled={disabled}
+          required={required}
           style={{
             ...vendorInputCss,
             ...this.props.inputStyles,
@@ -136,6 +140,8 @@ export default class PasswordMask extends Component {
           placeholder={placeholder}
           maxLength={maxLength}
           readOnly={readOnly}
+          disabled={disabled}
+          required={required}
           style={{
             ...vendorInputCss,
             ...this.props.inputStyles,
