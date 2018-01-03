@@ -21,7 +21,7 @@ export default class PasswordMask extends Component {
     onToggle: PropTypes.func,
     useVendorStyles: PropTypes.bool,
     readOnly: PropTypes.bool,
-    required: PropTypes.string,
+    required: PropTypes.bool,
     disabled: PropTypes.bool,
     inputStyles: PropTypes.any,
     buttonStyles: PropTypes.any,
