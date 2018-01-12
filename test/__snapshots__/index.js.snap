@@ -12,8 +12,10 @@ exports[`<PasswordMask /> renders password mask 1`] = `
   <input
     autoFocus={true}
     className=""
+    disabled={undefined}
     id="password"
     maxLength={16}
+    minLength={undefined}
     name="password"
     onBlur={[Function]}
     onChange={[Function]}
@@ -21,6 +23,7 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     onKeyDown={[Function]}
     placeholder="Enter password"
     readOnly={undefined}
+    required={undefined}
     style={
       Object {
         "borderColor": "aqua",
@@ -33,8 +36,10 @@ exports[`<PasswordMask /> renders password mask 1`] = `
   />
   <input
     className=""
+    disabled={undefined}
     id=""
     maxLength={16}
+    minLength={undefined}
     name=""
     onBlur={[Function]}
     onChange={[Function]}
@@ -42,6 +47,7 @@ exports[`<PasswordMask /> renders password mask 1`] = `
     onKeyDown={[Function]}
     placeholder="Enter password"
     readOnly={undefined}
+    required={undefined}
     style={
       Object {
         "borderColor": "aqua",
@@ -89,8 +95,10 @@ exports[`<PasswordMask /> renders password mask without any styles 1`] = `
   <input
     autoFocus={undefined}
     className=""
+    disabled={undefined}
     id="password"
     maxLength={undefined}
+    minLength={undefined}
     name="password"
     onBlur={[Function]}
     onChange={[Function]}
@@ -98,6 +106,7 @@ exports[`<PasswordMask /> renders password mask without any styles 1`] = `
     onKeyDown={[Function]}
     placeholder=""
     readOnly={undefined}
+    required={undefined}
     style={
       Object {
         "display": "block",
@@ -108,8 +117,10 @@ exports[`<PasswordMask /> renders password mask without any styles 1`] = `
   />
   <input
     className=""
+    disabled={undefined}
     id=""
     maxLength={undefined}
+    minLength={undefined}
     name=""
     onBlur={[Function]}
     onChange={[Function]}
@@ -117,6 +128,7 @@ exports[`<PasswordMask /> renders password mask without any styles 1`] = `
     onKeyDown={[Function]}
     placeholder=""
     readOnly={undefined}
+    required={undefined}
     style={
       Object {
         "display": "none",
