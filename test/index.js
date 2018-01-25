@@ -236,4 +236,22 @@ describe('<PasswordMask />', () => {
       expect(node.props().readOnly).toEqual(true);
     });
   });
+
+  it('can have input data props', () => {
+    const component = mount(
+      <PasswordMask
+        value={''}
+        inputDataProps={{
+          'data-sand': 'soft',
+          straw: 'clean'
+        }}
+      />
+    );
+
+    const inputs = component.find('input');
+    inputs.forEach((node) => {
+      expect(node.props()['data-sand']).toEqual('soft');
+      expect(node.props()['data-straw']).toEqual('clean');
+    });
+  });
 });

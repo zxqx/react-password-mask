@@ -26,6 +26,7 @@ export default class PasswordMask extends Component {
     disabled: PropTypes.bool,
     inputStyles: PropTypes.any,
     buttonStyles: PropTypes.any,
+    inputDataProps: PropTypes.object,
     showButtonContent: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.string
@@ -41,6 +42,7 @@ export default class PasswordMask extends Component {
     buttonClassName: '',
     placeholder: '',
     useVendorStyles: true,
+    inputDataProps: {},
     onChange() {},
     onBlur() {},
     onKeyDown() {}
@@ -95,12 +97,41 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, inputClassName, buttonClassName, placeholder, autoFocus, minLength, maxLength, onChange, onBlur, onKeyDown, showButtonContent, hideButtonContent, useVendorStyles, readOnly, disabled, required } = this.props;
+    const {
+      value,
+      id,
+      name,
+      className,
+      inputClassName,
+      buttonClassName,
+      placeholder,
+      autoFocus,
+      minLength,
+      maxLength,
+      onChange,
+      onBlur,
+      onKeyDown,
+      inputDataProps,
+      showButtonContent,
+      hideButtonContent,
+      useVendorStyles,
+      readOnly,
+      disabled,
+      required
+    } = this.props;
     const { passwordShown } = this.state;
 
     const vendorContainerCss = useVendorStyles ? containerStyles : {};
     const vendorInputCss = useVendorStyles ? inputStyles : {};
     const vendorButtonCss = useVendorStyles ? buttonStyles : {};
+
+    // Ensure data props start `data-`.
+    const parsedInputDataProps = {};
+    const dataPropRegex = /^data-/;
+    Object.keys(inputDataProps).forEach((key) => {
+      const newKey = dataPropRegex.test(key) ? key : `data-${key}`;
+      parsedInputDataProps[newKey] = inputDataProps[key];
+    });
 
     return (
       <div
@@ -130,6 +161,7 @@ export default class PasswordMask extends Component {
           onBlur={onBlur}
           onKeyDown={onKeyDown}
           onFocus={() => this.setState({ hasBeenFocused: true })}
+          {...parsedInputDataProps}
         />
 
         <input
@@ -154,6 +186,7 @@ export default class PasswordMask extends Component {
           onBlur={onBlur}
           onKeyDown={onKeyDown}
           onFocus={() => this.setState({ hasBeenFocused: true })}
+          {...parsedInputDataProps}
         />
 
         <a
