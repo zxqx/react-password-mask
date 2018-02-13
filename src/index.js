@@ -111,7 +111,7 @@ export default class PasswordMask extends Component {
           type="password"
           ref={input => this.passwordInput = input}
           value={value}
-          id={!passwordShown ? id : ''}
+          id={!passwordShown ? id : `_${id}`}
           name={!passwordShown ? name : ''}
           className={inputClassName}
           placeholder={placeholder}
@@ -136,7 +136,7 @@ export default class PasswordMask extends Component {
           type="text"
           ref={input => this.textInput = input}
           value={value}
-          id={passwordShown ? id : ''}
+          id={passwordShown ? id : `_${id}`}
           name={passwordShown ? name : ''}
           className={inputClassName}
           placeholder={placeholder}
