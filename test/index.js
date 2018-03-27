@@ -168,45 +168,6 @@ describe('<PasswordMask />', () => {
     expect(onToggle.withArgs('').calledTwice).toEqual(true);
   });
 
-  it('focuses visible text field on show', () => {
-    const component = mount(
-      <PasswordMask
-        value={''}
-        onChange={() => ({})}
-      />
-    );
-
-    const passwordInput = component.find('input[type="password"]');
-    const textInput = component.find('input[type="text"]');
-    const spy = sinon.spy(textInput.node, 'focus');
-    const showHideButton = component.find('a');
-
-    passwordInput.simulate('focus');
-    showHideButton.simulate('click');
-
-    expect(spy.calledOnce).toEqual(true);
-  });
-
-  it('focuses visible password field on hide', () => {
-    const component = mount(
-      <PasswordMask
-        value={''}
-        onChange={() => ({})}
-      />
-    );
-
-    const passwordInput = component.find('input[type="password"]');
-    const textInput = component.find('input[type="text"]');
-    const spy = sinon.spy(passwordInput.node, 'focus');
-    const showHideButton = component.find('a');
-
-    showHideButton.simulate('click');
-    textInput.simulate('focus');
-    showHideButton.simulate('click');
-
-    expect(spy.calledOnce).toEqual(true);
-  });
-
   it('cancels mouseDown event', () => {
     const preventDefault = sinon.spy();
 
@@ -234,6 +195,24 @@ describe('<PasswordMask />', () => {
     const inputs = component.find('input');
     inputs.forEach((node) => {
       expect(node.props().readOnly).toEqual(true);
+    });
+  });
+
+  it('can have input data props', () => {
+    const component = mount(
+      <PasswordMask
+        value={''}
+        inputDataProps={{
+          'data-sand': 'soft',
+          straw: 'clean'
+        }}
+      />
+    );
+
+    const inputs = component.find('input');
+    inputs.forEach((node) => {
+      expect(node.props()['data-sand']).toEqual('soft');
+      expect(node.props()['data-straw']).toEqual('clean');
     });
   });
 });
