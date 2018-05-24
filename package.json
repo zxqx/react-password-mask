@@ -1,6 +1,6 @@
 {
   "name": "react-password-mask",
-  "version": "3.3.1",
+  "version": "3.3.0",
   "description": "Show/hide the contents of a password field.",
   "main": "lib/passwordMask.min.js",
   "scripts": {
