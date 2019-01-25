@@ -22,6 +22,7 @@ export default class PasswordMask extends Component {
     onToggle: PropTypes.func,
     useVendorStyles: PropTypes.bool,
     useClick: PropTypes.bool,
+    readOnlyShown: PropTypes.bool,
     readOnly: PropTypes.bool,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -43,6 +44,7 @@ export default class PasswordMask extends Component {
     placeholder: '',
     useVendorStyles: true,
     useClick: true,
+    readOnlyShown: false,
     onChange() {},
     onBlur() {},
     onKeyDown() {}
@@ -105,7 +107,7 @@ export default class PasswordMask extends Component {
   }
 
   render() {
-    const { value, id, name, className, inputClassName, buttonClassName, placeholder, autoFocus, minLength, maxLength, onChange, onBlur, onKeyDown, showButtonContent, hideButtonContent, useVendorStyles, useClick, readOnly, disabled, required } = this.props;
+    const { value, id, name, className, inputClassName, buttonClassName, placeholder, autoFocus, minLength, maxLength, onChange, onBlur, onKeyDown, showButtonContent, hideButtonContent, useVendorStyles, useClick, readOnlyShown, readOnly, disabled, required } = this.props;
     const { passwordShown } = this.state;
 
     const vendorContainerCss = useVendorStyles ? containerStyles : {};
@@ -152,7 +154,7 @@ export default class PasswordMask extends Component {
           placeholder={placeholder}
           minLength={minLength}
           maxLength={maxLength}
-          readOnly={readOnly}
+          readOnly={(readOnlyShown && passwordShown) || readOnly}
           disabled={disabled}
           required={required}
           style={{
