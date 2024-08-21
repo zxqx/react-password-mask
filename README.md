@@ -2,7 +2,7 @@
 
 Show/hide the contents of a password field.
 
-[![Circle CI](https://circleci.com/gh/zakangelle/react-password-mask/tree/master.svg?style=shield)](https://circleci.com/gh/zakangelle/react-password-mask/tree/master) [![Coverage Status](https://img.shields.io/coveralls/zakangelle/react-password-mask.svg)](https://coveralls.io/github/zakangelle/react-password-mask?branch=master) [![See Demo](https://img.shields.io/badge/see-demo-4842f4.svg)](https://zakang.name/react-password-mask/)
+[![Coverage Status](https://img.shields.io/coveralls/zakangelle/react-password-mask.svg)](https://coveralls.io/github/zakangelle/react-password-mask?branch=master)
 
 
 <a href="https://zakang.name/react-password-mask/">
